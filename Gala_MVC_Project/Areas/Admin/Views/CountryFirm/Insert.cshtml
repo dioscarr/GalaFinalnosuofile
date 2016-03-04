@@ -1,0 +1,60 @@
+﻿@model DAL.Models.Country
+@using Gala_MVC_Project.Areas.Admin.Models;
+
+@{
+    ViewBag.Title = "Insert";
+    Layout = "~/Areas/Admin/Views/Shared/_Secomdary_Layout.cshtml";
+}
+
+<div class="row outer-Box" style=" margin-top:20px; padding-bottom:0!important;">
+    <div class="col-md-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">Step <span class="badge ">1</span> <span class="label label-primary"> Add New Country </span> </div>
+            <div class="panel-body">
+                <div class="form-group " style="  padding-bottom:0!important;">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-horizontal">
+                            <h4>Country</h4>
+                            <hr />
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.CountryName, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.CountryName, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.CountryName, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+
+                            
+
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+
+                                    <input type="submit" value="Create" class="btn btn-default" />
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                 
+                   <div>
+                        @Html.ActionLink("Back to List", "Index")
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+

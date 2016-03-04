@@ -1,0 +1,121 @@
+﻿
+@{
+    ViewBag.Title = "Membership";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<section class="about_content_slider">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h2 class="about_title text_uppercase">Join law firm Membership</h2>
+            </div>
+        </div>
+    </div>
+</section>
+ 
+<section class="bg_contact">
+    <div class="container content">
+        <div class="row">
+            <div class="col-xs-12">
+                <ol class="breadcrumb mobile_display_none">
+                    <li><a href="~/Home">Home</a></li>
+                    <li class="active">Join law firm Membership</li>
+                </ol>
+                <h1 class="content_title_news text_uppercase">Gala law firm membership</h1>
+            </div>
+        </div>
+
+        <div class="row content_text">
+            <div class="col-sm-8 col-xs-12 content_global">
+                <form action="" class="membershipForm" method="get">
+                    <p class="memberFormDescription">I would like to be considered for membership in GALA. The following information is provided for your review and consideration:</p>
+                    <p class="redFormStar requiredPadding">* Required</p>
+                    <div class="inputField">                        
+                        <p class="fieldName">First name: <span class="redFormStar">*</span></p>
+                        <p><input class="inputTypeField" type="text" name="fname"></p>
+                    </div>
+                    <div class="inputField">
+                        <p class="fieldName">Member Contact: <span class="redFormStar">*</span></p>
+                        <p><input class="inputTypeField" type="text" name="fname"></p>
+                    </div>
+                    <div class="inputField">
+                        <p class="fieldName">Address: </p>
+                        <p><input class="inputTypeField" type="text" name="fname"></p>
+                    </div>
+                    <div class="inputField">
+                        <p class="fieldName">City: </p>
+                        <p><input class="inputTypeField" type="text" name="fname"></p>
+                    </div>
+                    <div class="inputField">
+                        <p class="fieldName">State/Province: </p>
+                        <p><input class="inputTypeField" type="text" name="fname"></p>
+                    </div>
+                    <div class="inputField">
+                        <p class="fieldName">Zip/Postal Code: </p>
+                        <p><input class="inputTypeField" type="text" name="fname"></p>
+                    </div>
+                    <div class="inputField">
+                        <p class="fieldName">Country: </p>
+                        <p><input class="inputTypeField" type="text" name="fname"></p>
+                    </div>
+                    <div class="inputField">
+                        <p class="fieldName">Telephone: </p>
+                        <p><input class="inputTypeField" type="text" name="fname"></p>
+                    </div>
+                    <div class="inputField">
+                        <p class="fieldName">Fax: </p>
+                        <p><input class="inputTypeField" type="text" name="fname"></p>
+                    </div>
+                    <div class="inputField">
+                        <p class="fieldName">Contact Email: </p>
+                        <p><input class="inputTypeField" type="text" name="fname"></p>
+                    </div>
+                    <div class="inputField">
+                        <p class="fieldName">Firm Email: </p>
+                        <p><input class="inputTypeField" type="text" name="fname"></p>
+                    </div>
+                    <div class="inputField">
+                        <p class="fieldName">Firm Website: </p>
+                        <p><input class="inputTypeField" type="text" name="fname"></p>
+                    </div>
+                    <p class="memberFormDescription">Please Note: Any information provided during this or any other phase of the application process will be kept strictly confidential.</p>
+                    <input type="submit" class="formMemberButtom" value="Submit">
+
+                    <p>Never submit passwords through Google forms.</p>
+                </form>
+
+            </div>
+
+
+
+            <div class='col-sm-4 col-xs-12 membership'>
+                <div class="news_block">
+                    <div class="stuffing_news about_stuffing_news">
+                        <div class="home_member about_home_member">
+                            <h1 class="member_title about_member_title text_uppercase">join gala</h1>
+                            <div class="member_info about_member_info">
+                                <p>For information about joining GALA as a law firm member, see Membership.</p>
+                                <input class="text_uppercase" type="submit" value="MEMBERSHIP" onclick="window.location.href ='@Url.Action("Membership","Membership")';">
+                            </div>
+                            <div class="member_info about_member_info">
+                                <p>For information about joining GALA as a corporate member, see Associate Membership.</p>
+                                <input class="text_uppercase" type="submit" value="ASSOCIATE MEMBERSHIP" onclick="window.location.href ='@Url.Action("MembershipAssociate","MembershipAssociate")';">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="row">
+
+        </div>
+        <div class="row">
+
+        </div>
+    </div>
+
+</section>

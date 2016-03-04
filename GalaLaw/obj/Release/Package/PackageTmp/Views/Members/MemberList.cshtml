@@ -1,0 +1,174 @@
+﻿@model GalaLaw.Models.MemberModel
+@{
+    ViewBag.Title = "FindMember";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<section class="about_content_slider">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h2 class="about_title text_uppercase">Members</h2>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bg_contact">
+    <div class="container content">
+        <div class="row">
+            <div class="col-xs-12">
+                <ol class="breadcrumb mobile_display_none">
+                    <li><a href="~/Home">Home</a></li>
+                    <li class="active">Members</li>
+                </ol>
+                <p class="findmember_main_title">GALA is an alliance of lawyers located throughout the world with expertise and experience in advertising, marketing, and promotion law, representing more than 80 countries.  Detailed information about each of our members is located below. </p>
+            </div>
+        </div>
+
+        <div class="row content_text member_content_text">
+            <div class="col-xs-12 content_global member_list_content_global">
+                <table id="t01" class="find_all_member table-striped " style="width:100%">
+                    <tr class="find_all_member_name">
+                        <th class="mobile_display_none find_all_member_name_first">Country</th>
+                        <th class="mobile_display_none find_all_member_name_first">Firm</th>
+                        <th class="mobile_display_none find_all_member_name_last">Name</th>
+                    </tr>
+                    @{
+                        var Country = "";
+                        var newcountry = "";
+                        var FirmName = "";
+                    }
+                    @foreach (var member in Model.MemberList.OrderBy(c=>c.Country).ToList())
+                    {
+                        Country = @member.Country;
+                        <tr class="mobile_display_none find_all_member_name @ViewBag.stripe">
+                            @if (Country == newcountry)
+                            {
+                                <td></td>
+                                <td><a href="~/members/firm?id=@member.FID&Country=@member.Country">@member.Firm</a></td>
+                                <td><a href="~/Members/member/@member.MID/@member.FID/@member.Country">@member.Name</a></td>
+                               
+                            }
+                            else
+                            {
+                                <td><a href="~/members/firm?id=@member.FID&Country=@member.Country"><img src="~/Images/flags/@member.flag"> @member.Country</a></td>
+                                <td><a href="~/members/firm?id=@member.FID&Country=@member.Country">@member.Firm</a></td>
+                                <td><a href="~/Members/member/@member.MID/@member.FID/@member.Country">@member.Name</a></td>
+                                newcountry = Country;
+                            }
+                        </tr>
+                    }
+
+                    
+                   @{
+                      var decidecountry = "";
+                       var count = 0;
+                       var OldFirmName = "";
+                       }
+
+                        @foreach (var member in Model.MemberList)
+                        {
+
+                            if (count != 0)
+                            {
+                                count--;
+                            }
+                            else
+                            {
+
+                             <tr class="mobile_display_block mobile_country_errow find_all_member_name @ViewBag.stripe">
+                              <td>
+                                @foreach (var item in @Model.MemberList.Where(c => c.Country == @member.Country).ToList())
+                                {
+                                   
+                                   count++;
+                                    if (decidecountry == @member.Country)
+                                    {
+
+                                        <div class="mobile_display_none mobile_member_info"> 
+                                            @if (OldFirmName != @item.Firm)
+                                            {
+                                                <br/>
+                                                <a href="~/members/firm?id=@member.FID&Country=@member.Country">@item.Firm</a><br />
+                                                
+                                                OldFirmName = item.Firm;
+                                            }
+                                           
+                                                                                               
+                                            <a href="~/Members/member/@member.MID/@member.FID/@member.Country"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>@item.Name</a>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                      
+                                        <div class="mobile_member_country">
+                                            <div class="pull-left text_uppercase">
+                                                <img src="~/Images/flags/@item.flag">
+                                                <span>@item.Country</span>
+                                            </div>
+                                            <div class="pull-right">
+                                                <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span>
+                                            </div>
+                                        </div>
+                                        <div class="mobile_display_none mobile_member_info">
+                                           
+                                            <a href="~/members/firm?id=@member.FID&Country=@member.Country">@item.Firm</a><br />
+                                           
+                                            <a href="~/Members/member/@member.MID/@member.FID/@member.Country"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>@item.Name</a>
+                                        </div>
+                                        OldFirmName = item.Firm;
+                                        decidecountry = @member.Country;
+                                    }
+                                }
+                                </td>
+                            </tr>
+                            }
+                        }
+                </table>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12 membership member_membership">
+                <div class="news_block">
+                    <div class="stuffing_news stuffing_findmember_news">
+                        <div class="home_member bottom_home_member">
+                            <div class="pull-left member_info bottom_home_info">
+                                <p>For information about joining GALA as a law firm member, see Membership.</p>
+                                <input class="text_uppercase" type="submit" value="MEMBERSHIP">
+                            </div>
+                            <div class="pull-right member_info bottom_home_info">
+                                <p>For information about joining GALA as a corporate member, see Associate Membership.</p>
+                                <input class="text_uppercase" type="submit" value="ASSOCIATE MEMBERSHIP">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+               
+  
+@section scripts{
+    <script type="text/javascript">
+        $(".mobile_display_block").click(function () {
+            var $this = $(this);
+
+            $($this).removeClass("mobile_country_errow");
+            $(".mobile_display_block").not($this).addClass("mobile_country_errow");
+
+            //$(".mobile_member_info").hide("slow");
+
+            $this.children().children().next().slideToggle("slow");
+            $this.siblings().children().children().next().slideUp("slow");
+
+        });
+    </script>
+}
+

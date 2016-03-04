@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/Admin_Layout.cshtml";
+}
+
+
+
+
+    <div class="container">
+        @RenderBody()
+    </div>
+    
+@if (ViewBag.Firmfooter == "on")
+{
+    <footer class="footer ">
+        <div class="container ">
+            <div class="row ">
+                <div class="col-sm-12 col-xs-12 copyright copyright_secondary">
+                    <span class="icon_copyright icon_secondary_copyright">© 2015 Gala & Co., L.P. 123  | <a href="~/About/TermsAndConditions">Terms and Conditions </a></span>
+                </div>
+            </div>
+        </div>
+    </footer>
+}
+else
+{
+
+    <footer class="footer ">
+        <div class="container">
+            <div class="row ">
+                <div class="col-sm-12 col-xs-12 copyright copyright_secondary">
+                    <span class="icon_copyright icon_secondary_copyright">© 2015 Gala & Co., L.P. |<a href="~/About/TermsAndConditions">Terms and Conditions </a></span>
+                </div>
+            </div>
+        </div>
+    </footer>
+}
+
+
+<script src="~/Scripts/jquery-2.1.4.min.js"></script>
+<link href="~/Content/prettify.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-ui-1.11.4.min.js"></script>
+<link href="~/Content/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+<script src="~/Scripts/bootstrap-datetimepicker.js"></script>
+<script src="~/Scripts/bootstrap-datetimepicker.fr.js"></script>
+<script src="~/Scripts/ckeditor/ckeditor.js"></script>
+
+@section scripts{
+    <script type="text/javascript">
+        $(".body-content").css("position", "relative");
+    </script>
+}
+
+
+@*@Scripts.Render("~/bundles/jquery")*@
+@Scripts.Render("~/bundles/bootstrap")
+@RenderSection("scripts", required: false)

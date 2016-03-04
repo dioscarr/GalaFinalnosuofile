@@ -1,0 +1,96 @@
+﻿@model Gala_MVC_Project.Models.MemberModel
+@{
+    ViewBag.Title = "Member";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<section class="about_content_slider">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h2 class="about_title text_uppercase"> @ViewBag.CountryName</h2>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bg_contact">
+    <div class="container content">
+        <div class="row">
+            <div class="col-xs-12">
+                <ol class="mobile_display_none breadcrumb">
+                    <li><a href="~/Home">Home</a></li>
+                    <li><a href="~/Members/MemberList">Members</a></li>
+
+                    <li><a href="~/Members/Firm?id=@ViewBag.FID&Country=@ViewBag.CountryName">@ViewBag.CountryName</a></li>
+                    <li><a href="~/Members/Firm?id=@ViewBag.FID&Country=@ViewBag.CountryName">@Model.Member.CMFRelation.Where(c => c.MID == @Model.Member.Id).FirstOrDefault().Firm.FirmName</a></li>
+                    <li class="active">@Model.Member.FName @Model.Member.MInitial @Model.Member.LName </li>
+                </ol>
+
+            </div>
+        </div>
+        <div class="row content_text">
+            <div class="col-xs-9 content_global member_content_global">
+                <div class="bio_top_title">
+                    <div class="pull-left">
+                        <h1 class="content_title_news">@Model.Member.FName @Model.Member.MInitial @Model.Member.LName</h1>
+                    </div>
+                    <div class="pull-right print_share">
+                        <a href="javascript:window.print();"><img src="~/Images/print.png" alt="Print"></a>
+                        <a href="http://www.addthis.com/bookmark.php"
+                           class="addthis_button"
+                           style="text-decoration:none;">
+                            <img src="~/Images/share.png" alt="Share" />
+                        </a> 
+                    </div>
+                </div>
+                <hr>
+                <div class="col-xs-3 bio_member">
+                    <img src="~/Images/Members/@Model.Member.Picture" />
+                    <div class="member_bio_contact_info">
+                        <span class="bio_member_infotitle">Email</span><br />
+                        <span class="bio_member_info"><a href="mailto:@Model.Member.Email">@Model.Member.Email</a></span>
+                    </div>
+                    <div class="member_bio_contact_info">
+                        <span class="bio_member_infotitle">Telephone</span><br />
+                        <span class="bio_member_info">@Model.Member.Tel</span>
+                    </div>
+                    <div class="member_bio_contact_info">
+                        <span class="bio_member_infotitle">Fax</span><br />
+                        <span class="bio_member_info">@Model.Member.Fax</span>
+                    </div>
+                </div>
+                <div class="col-xs-9 bio_member_content_info">
+                    @Html.Raw(@Model.Member.BIO)
+                </div>
+            </div>
+            <div class="col-xs-3 mobile_member_right_info">
+                @*<h4 class="bio_left_title text_uppercase">Heuking</h4>*@
+                <div class="bio_contact_info">
+                  
+                    <p><span>@Model.Member.CMFRelation.Where(c => c.MID == @Model.Member.Id).FirstOrDefault().Firm.FirmName</span></p>
+                    <p><span>@Model.Member.CMFRelation.Where(c => c.MID == @Model.Member.Id).FirstOrDefault().Firm.Address</span></p>
+                    <p><span>@Model.Member.CMFRelation.Where(c => c.MID == @Model.Member.Id).FirstOrDefault().Firm.City @Model.Member.CMFRelation.Where(c => c.MID == @Model.Member.Id).FirstOrDefault().Firm.Zip</span></p>
+                    <p><span>@Model.Member.CMFRelation.Where(c => c.MID == @Model.Member.Id).FirstOrDefault().Firm.Country</span></p>
+                    <br />
+                    <p><span>Tel:    <span>@Model.Member.CMFRelation.Where(c => c.MID == @Model.Member.Id).FirstOrDefault().Firm.Tel</span></span></p>
+                    <p><span>Fax:    <span>@Model.Member.CMFRelation.Where(c => c.MID == @Model.Member.Id).FirstOrDefault().Firm.Fax</span></span></p>
+                    <p><span>Web:   <a href="http://@Model.Member.CMFRelation.Where(c => c.MID == @Model.Member.Id).FirstOrDefault().Firm.web" target="_blank">@Model.Member.CMFRelation.Where(c => c.MID == @Model.Member.Id).FirstOrDefault().Firm.web</a></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+@section scripts{
+
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-56c77f564b126cf8"></script>
+
+
+}

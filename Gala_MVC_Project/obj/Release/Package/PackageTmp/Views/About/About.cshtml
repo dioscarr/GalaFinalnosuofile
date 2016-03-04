@@ -1,0 +1,88 @@
+﻿@model Gala_MVC_Project.Models.AboutUsModel
+@{
+    ViewBag.Title = "About";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<section class="about_content_slider">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h2 class="about_title text_uppercase">About Us</h2>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bg_contact">
+    <div class="container content">
+        <div class="row">
+            <div class="col-xs-12">
+                <ol class="breadcrumb mobile_display_none">
+                    <li><a href="~/Home">Home</a></li>
+                    <li class="active">About Us</li>
+                </ol>
+                <h1 class="content_title_news text_uppercase">@Model.aboutus.Header</h1>
+            </div>
+        </div>
+
+        <div class="row content_text">
+            <div class="col-sm-8 col-xs-12 content_global">
+
+                @*<p>The Global Advertising Lawyers Alliance ("GALA") is an alliance of lawyers located throughout the world with expertise and experience in advertising, marketing and promotion law. GALA provides a worldwide resource to individuals and corporations interested in answers to questions and solutions to problems involving the complex legal issues affecting advertisers and marketers. GALA, a network of independent law firms, is neither licensed nor authorized to render legal services. While GALA can coordinate the consultation an Associate Member or third party may receive from GALA members, each individual GALA member, and not GALA, is solely responsible for the advice they provide.</p><br>*@
+                @* <p>A worldwide resource to individuals and corporations interested in answers to questions and solutions to problems involving the complex legal issues affecting advertisers and marketers. GALA, a network of independent law firms, is neither licensed nor authorized to render legal services. While GALA can coordinate the consultation an Associate Member or third party may receive from GALA members, each individual GALA member, and not GALA, is solely responsible for the advice they provide.</p>*@
+                @Html.Raw(@Model.aboutus.Content)
+
+                <a class="about_view_member_list text_uppercase" href="~/members/MemberList">VIEW OUR MEMBER LISTING &nbsp;<img src="~/Images/about-arrow.png" /></a><br><br>
+                <span class="Executive_Committee">GALA's Executive Committee</span><br>
+
+                @foreach (var executive in @Model.executives)
+                {
+
+                    <div class="col-xs-4 about_member_col">
+                        <div class="about_member_block">
+                            <div class="about_member_person">
+                                <div class="pull-left about_member_person_img">
+                                    <img src="~/Images/Members/@executive.picture" alt="">
+                                </div>
+                                <div class="pull-right about_member_person_info">
+                                    <h3><a href="~/Members/member/@executive.id/@executive.FID/@executive.country "> @executive.Name </a></h3>
+                                    <h4>@executive.title</h4>
+                                    <span class="about_member_country"><a class="text_uppercase" href="~/members/firm?id=@executive.FID&Country=@executive.country">@executive.country</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            </div>
+
+            <div class='col-sm-4 col-xs-12 membership'>
+                <div class="news_block">
+                    <div class="stuffing_news about_stuffing_news">
+                        <div class="home_member about_home_member">
+                            <h1 class="member_title about_member_title text_uppercase">join gala</h1>
+                            <div class="member_info about_member_info">
+                                <p>For information about joining GALA as a law firm member, see Membership.</p>
+                                <input class="text_uppercase" type="submit" value="MEMBERSHIP">
+                            </div>
+                            <div class="member_info about_member_info">
+                                <p>For information about joining GALA as a corporate member, see Associate Membership.</p>
+                                <input class="text_uppercase" type="submit" value="ASSOCIATE MEMBERSHIP">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            </div>
+            <div class="row">
+
+            </div>
+            <div class="row">
+
+            </div>
+        </div>
+    
+</section>

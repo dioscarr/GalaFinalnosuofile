@@ -1,0 +1,154 @@
+﻿@model GalaLaw.Models.PublicationModel
+@{
+    ViewBag.Title = "GazetteArchive";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    
+}
+
+
+<section class="about_content_slider">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h2 class="about_title text_uppercase">Publications</h2>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bg_contact">
+    <div class="container content">
+        <div class="row">
+            <div class="col-xs-12">
+                <ol class="breadcrumb mobile_display_none">
+                    <li><a href="~/Home">Home</a></li>
+                    <li><a href="~/Publication/Publication">Publication</a></li>
+                    <li class="active">Gala Gazette</li>
+                </ol>
+            </div>
+        </div>
+        <div class="row content_text"> 
+            <div class="col-xs-8 content_global mobile_content_global">
+
+                <div class="bio_top_title">
+                    <div class="pull-left">
+                        <h1 class="content_title_news">GALA Gazette</h1>
+                    </div>
+                    <div class="pull-right print_share">
+                        <h4 class="events_archive text_uppercase"><button data-bind="click: next" class="btn btn-link " style="color:black; font-size:18px; font-weight:bolder;"><</button>
+                         <span  data-bind="text: currentItem().name"></span> 
+                        <button  class="btn btn-link"  data-bind="click: prev" style="color:black; font-size:18px; font-weight:bolder;" >></button>
+                        </h4>
+                    </div>
+                </div>
+                <hr>
+                <!--Knockout JS-->
+                <h2 class="gazette_data text_uppercase"  data-bind="text:  moment(currentItem().PublishedDate).format('MM.DD.YYYY')" ></h2>
+               
+                <div data-bind="foreach: currentItem().countries">
+                    <h4 class="gazette_country"><a data-bind="text:cname"></a></h4>
+                    <p><a href="" data-bind="attr: {href:'@Url.Action("GazetteArticle", "Publication")/'+id}"><span class="text_uppercase" data-bind="text:Header"></span></a></p>
+                    <p data-bind="html:Content" class="limitchr"></p>
+                    <br>
+                </div>
+              
+            </div>
+            <div class='col-xs-4 membership mobile_content_global'>
+                <div class="news_block events_block">
+                    <div class="stuffing_news stuffing_events">
+                        <div class="home_member">
+                            <h1 class="member_title text_uppercase member_events_title">Sign up for gala gazette</h1>
+                            <div class="member_info member_events_info">
+                                <p>Would you like to receive the GALA Gazette? Click the link below to subscribe.</p>
+                                <input class="text_uppercase" type="submit" value="SUBSCRIBE">`
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section scripts{
+
+ <script src="~/Scripts/knockout-3.4.0.js"></script>   
+<script src="~/Scripts/knockout.mapping-latest.js"></script>
+<script src="~/Scripts/moment.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+
+            //ko handler
+
+            ko.bindingHandlers.trimLengthText = {};
+            ko.bindingHandlers.trimText = {
+                init: function (element, valueAccessor, allBindingsAccessor, viewModel) {
+                    var trimmedText = ko.computed(function () {
+                        var untrimmedText = ko.utils.unwrapObservable(valueAccessor());
+                        var defaultMaxLength = 20;
+                        var minLength = 5;
+                        var maxLength = ko.utils.unwrapObservable(allBindingsAccessor().trimTextLength) || defaultMaxLength;
+                        if (maxLength < minLength) maxLength = minLength;
+                        var text = untrimmedText.length > maxLength ? untrimmedText.substring(0, maxLength - 1) + '...' : untrimmedText;
+                        return text;
+                    });
+                    ko.applyBindingsToNode(element, {
+                        text: trimmedText
+                    }, viewModel);
+
+                    return {
+                        controlsDescendantBindings: true
+                    };
+                }
+            };
+
+
+
+            vm = function () {
+                var self = this;
+                self.mainArray = ko.observableArray([{ id: 1, name: '', PublishedDate:'', countries: [{ id: 0, Header: "", cname: "", Content: "" }] }]);
+                self.GazetteDate = ko.observable();
+                self.updateDate = function (date)
+                {
+                    self.GazetteDate(date);
+
+                }
+
+                if ('@ViewBag.Firm' != null)
+                {                    
+                    var link = '@Url.Action("GazetteVolumes", "Publication")?firmID=@ViewBag.firm';
+                }
+                else
+                {
+                    var link = '@Url.Action("GazetteVolumes", "Publication")';
+                }
+               
+
+
+                $.ajax({
+                    type: "GET",
+                    url: link,
+                    success: function (data) {
+                        //alert(JSON.stringify(data.Data));
+
+                        self.mainArray(data.Data);
+                    }
+                });
+                var _currentItemIndex = ko.observable(0);
+
+                function navigate(nrOfSpots) {
+                    if (_currentItemIndex() + nrOfSpots >= self.mainArray().length) { return; }
+                    if (_currentItemIndex() + nrOfSpots < 0) { return; }
+                    _currentItemIndex(_currentItemIndex() + nrOfSpots);
+                }
+                self.next = function () { navigate(1); };
+                self.prev = function () { navigate(-1); };
+                self.currentItem = ko.computed(function () {
+                    return self.mainArray()[_currentItemIndex()];
+                });
+            }
+            ko.applyBindings(vm);
+        });
+    </script>
+    
+    }

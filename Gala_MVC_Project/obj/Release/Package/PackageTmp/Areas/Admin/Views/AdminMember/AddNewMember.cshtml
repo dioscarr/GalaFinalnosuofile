@@ -1,0 +1,217 @@
+﻿@model Gala_MVC_Project.Areas.Admin.Models.MemberModel
+@{
+    ViewBag.Title = "AddNewMember";
+    Layout = "~/Areas/Admin/Views/Shared/_Secomdary_Layout.cshtml";
+}
+
+<div class="row outer-Box" style=" margin-top:20px; padding-bottom:0!important;">
+    <div class="col-md-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">Step <span class="badge ">1</span> <span class="label label-primary"> Add Member </span> </div>
+            <div class="panel-body">
+                <div class="form-group " style="  padding-bottom:0!important;">
+                 
+
+                    <hr/>
+                    <br/>
+                    <br/>
+
+
+                    @using (Html.BeginForm("AddNewMember", "AdminMember", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        
+                        
+                        
+                    
+
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="form-group">
+       
+       <img src="~/Images/Members/noimg.jpg" />
+        <br />
+        <br />
+        @Html.CheckBoxFor(c => c.isNewPicture, new { id = "checkIfNew" })
+        <label>Check to select new Image</label>
+        <div id="newPicture" style="display:none;">
+            @Html.LabelFor(model => model.ImageUpload)
+            @Html.TextBoxFor(model => model.ImageUpload, new { @type = "file" })
+
+        </div>
+        <br />
+        <br />
+    </div>
+
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Member.Type, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.Member.Type, (IEnumerable<SelectListItem>)ViewBag.type, new { @class = "form-control ", id = "Countryid" })
+            @* @Html.ValidationMessageFor(model => model.Member.Type, "", new { @class = "text-danger" })*@
+        </div>
+    </div>
+
+
+
+
+
+        <div class="form-group">
+            @Html.Label("First Name", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Member.FName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Member.FName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Last Name", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Member.LName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Member.LName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Middle name", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Member.MInitial, new { htmlAttributes = new { @class = "form-control", maxlength ="1"} })
+                @Html.ValidationMessageFor(model => model.Member.MInitial, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Member.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Member.Title, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Member.Title, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Member.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Member.Email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Member.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Member.Tel, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Member.Tel, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Member.Tel, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Member.Fax, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Member.Fax, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Member.Fax, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Member.BIO, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Member.BIO, 80, 10, new { @class = "form-control ckeditor investment-detail-content", @name = "editor1" })
+
+                @Html.ValidationMessageFor(model => model.Member.BIO, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+
+        }
+
+        <div>
+            @Html.ActionLink("Back to List", "MemberList")
+        </div>
+
+
+    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+@section Scripts{
+
+    <link href="~/Content/prettify.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-ui-1.11.4.min.js"></script>
+
+
+<script src="~/Scripts/knockout-3.4.0.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function ()
+        {
+            $('#checkIfNew').change(function () {
+                $('#newPicture').slideToggle();
+            }
+                   );
+
+        });
+
+        $(function () {
+            var ViewModel = function () {
+                var self = this;
+                self.name = ko.observable("Dioscar");
+                self.Firms = ko.observableArray([new {Text:"Will", value:"1"}]);
+
+
+                self.Text = ko.observable(),
+                self.value = ko.observable()
+
+                $("#Countryid").change(function () {
+                    var Country = $("#Countryid option:selected").text();
+                    $.ajax({
+                        type:"GET",
+                        url:"/Admin/AdminMember/getFirm/",
+                        data: { Country: Country },
+                        dataType:"json",
+                        success: function (returnData) {
+                               
+                            for (var i = 0; i < returnData.length; i++)
+                            {
+                                self.Firms.push( {
+                                    Text: ko.observable( "THIS OSADOSN"),
+                                    value: ko.observable(returnData[0].Value)
+                                })
+                                
+                            }
+
+                            
+
+                          
+                    }
+
+                    });
+                });
+               
+                
+               
+            }
+            ko.applyBindings(new ViewModel());
+        });
+
+
+
+
+
+    </script>
+}

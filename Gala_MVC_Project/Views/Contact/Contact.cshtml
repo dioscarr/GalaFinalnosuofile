@@ -1,0 +1,78 @@
+﻿@model Gala_MVC_Project.Models.ContactModel
+@{
+    ViewBag.Title = "Contact";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<section class="about_content_slider ">
+    <div class="container">
+        <div class="row"> 
+            <div class="col-xs-12">
+                <h2 class="about_title text_uppercase">Contact Us</h2>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bg_contact " >
+    <div class="container content ">
+        <div class="row">
+            <div class="col-xs-12">
+                <ul class="page_nav_list mobile_display_none">
+                    <li><a href="#">Home /</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+                <h1 class="content_title_news text_uppercase">@if (@Model.contact !=null) {@Model.contact.PageTitle}
+                </h1>
+            </div>
+        </div>
+        <div class="row content_text ">
+            <div class="col-xs-8 content_global mobile_content_global">
+                <p class="contact_us_info">@if (@Model.contact != null)
+                {@Model.contact.Name}</p>
+                <p><span>@if (@Model.contact != null)
+                {@Model.contact.Title}</span></p><br>
+                <p class="contact_us_info">@if (@Model.contact != null)
+                {@Model.contact.CompanyName}</p>
+                <p><span>@if (@Model.contact != null)
+                {@Model.contact.Address}</span></p>
+                <p><span>@if (@Model.contact != null)
+                {@Model.contact.City},@if (@Model.contact != null)
+                { @Model.contact.Zipcode}</span></p>
+                <p><span>Tel:     <a href="">@if (@Model.contact != null)
+                {@Model.contact.Tel}</a></span></p>
+                <p><span>Fax:    <a href="">@if (@Model.contact != null)
+                {@Model.contact.fax}</a></span></p>
+                <p><span>Web:   <a href="">@if (@Model.contact != null)
+                {@Model.contact.Web}</a></span></p>
+
+            </div>
+            <div class='col-xs-4 membership mobile_content_global'>
+                <div class="news_block">
+                    <div class="stuffing_news about_stuffing_news">
+                        <div class="home_member about_home_member">
+                            <h1 class="member_title about_member_title text_uppercase">join gala</h1>
+                            <div class="member_info about_member_info">
+                                <p>For information about joining GALA as a law firm member, see Membership.</p>
+                                <input class="text_uppercase" type="submit" value="MEMBERSHIP">
+                            </div>
+                            <div class="member_info about_member_info">
+                                <p>For information about joining GALA as a corporate member, see Associate Membership.</p>
+                                <input class="text_uppercase" type="submit" value="ASSOCIATE MEMBERSHIP">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@section scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.content').css("height", ($(window).height() - $('#wrapper2').height()) + $('.content').height());
+        });
+    </script>
+}
+

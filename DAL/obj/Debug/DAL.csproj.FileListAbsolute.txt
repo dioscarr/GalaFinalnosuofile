@@ -1,0 +1,90 @@
+C:\Users\Clever Design\Desktop\Work\DisocarRodriguez\Gala\Gala_MVC_Project\DAL\bin\Debug\DAL.dll.config
+C:\Users\Clever Design\Desktop\Work\DisocarRodriguez\Gala\Gala_MVC_Project\DAL\bin\Debug\DAL.dll
+C:\Users\Clever Design\Desktop\Work\DisocarRodriguez\Gala\Gala_MVC_Project\DAL\bin\Debug\DAL.pdb
+C:\Users\Clever Design\Desktop\Work\DisocarRodriguez\Gala\Gala_MVC_Project\DAL\bin\Debug\System.Web.Mvc.dll
+C:\Users\Clever Design\Desktop\Work\DisocarRodriguez\Gala\Gala_MVC_Project\DAL\bin\Debug\System.Web.Razor.dll
+C:\Users\Clever Design\Desktop\Work\DisocarRodriguez\Gala\Gala_MVC_Project\DAL\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\Clever Design\Desktop\Work\DisocarRodriguez\Gala\Gala_MVC_Project\DAL\bin\Debug\System.Web.WebPages.dll
+C:\Users\Clever Design\Desktop\Work\DisocarRodriguez\Gala\Gala_MVC_Project\DAL\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\Clever Design\Desktop\Work\DisocarRodriguez\Gala\Gala_MVC_Project\DAL\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\Clever Design\Desktop\Work\DisocarRodriguez\Gala\Gala_MVC_Project\DAL\bin\Debug\System.Web.Mvc.xml
+C:\Users\Clever Design\Desktop\Work\DisocarRodriguez\Gala\Gala_MVC_Project\DAL\bin\Debug\System.Web.Razor.xml
+C:\Users\Clever Design\Desktop\Work\DisocarRodriguez\Gala\Gala_MVC_Project\DAL\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\Clever Design\Desktop\Work\DisocarRodriguez\Gala\Gala_MVC_Project\DAL\bin\Debug\System.Web.WebPages.xml
+C:\Users\Clever Design\Desktop\Work\DisocarRodriguez\Gala\Gala_MVC_Project\DAL\bin\Debug\Microsoft.Web.Infrastructure.xml
+C:\Users\Clever Design\Desktop\Work\DisocarRodriguez\Gala\Gala_MVC_Project\DAL\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\Clever Design\Desktop\Work\DisocarRodriguez\Gala\Gala_MVC_Project\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+C:\Users\Clever Design\Desktop\Work\DisocarRodriguez\Gala\Gala_MVC_Project\DAL\obj\Debug\DAL.dll
+C:\Users\Clever Design\Desktop\Work\DisocarRodriguez\Gala\Gala_MVC_Project\DAL\obj\Debug\DAL.pdb
+C:\Users\Clever Design\Desktop\Work\DisocarRodriguez\MVC-Project\Gala\Gala_MVC_Project\DAL\bin\Debug\DAL.dll.config
+C:\Users\Clever Design\Desktop\Work\DisocarRodriguez\MVC-Project\Gala\Gala_MVC_Project\DAL\bin\Debug\DAL.dll
+C:\Users\Clever Design\Desktop\Work\DisocarRodriguez\MVC-Project\Gala\Gala_MVC_Project\DAL\bin\Debug\DAL.pdb
+C:\Users\Clever Design\Desktop\Work\DisocarRodriguez\MVC-Project\Gala\Gala_MVC_Project\DAL\bin\Debug\System.Web.Mvc.dll
+C:\Users\Clever Design\Desktop\Work\DisocarRodriguez\MVC-Project\Gala\Gala_MVC_Project\DAL\bin\Debug\System.Web.Razor.dll
+C:\Users\Clever Design\Desktop\Work\DisocarRodriguez\MVC-Project\Gala\Gala_MVC_Project\DAL\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\Clever Design\Desktop\Work\DisocarRodriguez\MVC-Project\Gala\Gala_MVC_Project\DAL\bin\Debug\System.Web.WebPages.dll
+C:\Users\Clever Design\Desktop\Work\DisocarRodriguez\MVC-Project\Gala\Gala_MVC_Project\DAL\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\Clever Design\Desktop\Work\DisocarRodriguez\MVC-Project\Gala\Gala_MVC_Project\DAL\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\Clever Design\Desktop\Work\DisocarRodriguez\MVC-Project\Gala\Gala_MVC_Project\DAL\bin\Debug\System.Web.Mvc.xml
+C:\Users\Clever Design\Desktop\Work\DisocarRodriguez\MVC-Project\Gala\Gala_MVC_Project\DAL\bin\Debug\System.Web.Razor.xml
+C:\Users\Clever Design\Desktop\Work\DisocarRodriguez\MVC-Project\Gala\Gala_MVC_Project\DAL\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\Clever Design\Desktop\Work\DisocarRodriguez\MVC-Project\Gala\Gala_MVC_Project\DAL\bin\Debug\System.Web.WebPages.xml
+C:\Users\Clever Design\Desktop\Work\DisocarRodriguez\MVC-Project\Gala\Gala_MVC_Project\DAL\bin\Debug\Microsoft.Web.Infrastructure.xml
+C:\Users\Clever Design\Desktop\Work\DisocarRodriguez\MVC-Project\Gala\Gala_MVC_Project\DAL\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\Clever Design\Desktop\Work\DisocarRodriguez\MVC-Project\Gala\Gala_MVC_Project\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+C:\Users\Clever Design\Desktop\Work\DisocarRodriguez\MVC-Project\Gala\Gala_MVC_Project\DAL\obj\Debug\DAL.dll
+C:\Users\Clever Design\Desktop\Work\DisocarRodriguez\MVC-Project\Gala\Gala_MVC_Project\DAL\obj\Debug\DAL.pdb
+S:\Staff\Catherine Lebedeva\GalaLocalVersion 322016\DAL\bin\Debug\DAL.dll.config
+S:\Staff\Catherine Lebedeva\GalaLocalVersion 322016\DAL\bin\Debug\DAL.dll
+S:\Staff\Catherine Lebedeva\GalaLocalVersion 322016\DAL\bin\Debug\DAL.pdb
+S:\Staff\Catherine Lebedeva\GalaLocalVersion 322016\DAL\bin\Debug\System.Web.Mvc.dll
+S:\Staff\Catherine Lebedeva\GalaLocalVersion 322016\DAL\bin\Debug\System.Web.Razor.dll
+S:\Staff\Catherine Lebedeva\GalaLocalVersion 322016\DAL\bin\Debug\System.Web.WebPages.Razor.dll
+S:\Staff\Catherine Lebedeva\GalaLocalVersion 322016\DAL\bin\Debug\System.Web.WebPages.dll
+S:\Staff\Catherine Lebedeva\GalaLocalVersion 322016\DAL\bin\Debug\Microsoft.Web.Infrastructure.dll
+S:\Staff\Catherine Lebedeva\GalaLocalVersion 322016\DAL\bin\Debug\System.Web.WebPages.Deployment.dll
+S:\Staff\Catherine Lebedeva\GalaLocalVersion 322016\DAL\bin\Debug\System.Web.Mvc.xml
+S:\Staff\Catherine Lebedeva\GalaLocalVersion 322016\DAL\bin\Debug\System.Web.Razor.xml
+S:\Staff\Catherine Lebedeva\GalaLocalVersion 322016\DAL\bin\Debug\System.Web.WebPages.Razor.xml
+S:\Staff\Catherine Lebedeva\GalaLocalVersion 322016\DAL\bin\Debug\System.Web.WebPages.xml
+S:\Staff\Catherine Lebedeva\GalaLocalVersion 322016\DAL\bin\Debug\Microsoft.Web.Infrastructure.xml
+S:\Staff\Catherine Lebedeva\GalaLocalVersion 322016\DAL\bin\Debug\System.Web.WebPages.Deployment.xml
+S:\Staff\Catherine Lebedeva\GalaLocalVersion 322016\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+S:\Staff\Catherine Lebedeva\GalaLocalVersion 322016\DAL\obj\Debug\DAL.dll
+S:\Staff\Catherine Lebedeva\GalaLocalVersion 322016\DAL\obj\Debug\DAL.pdb
+C:\Users\CWR\Desktop\WORK\kate\Developing\mvc-projects\GalaLocalVersion 322016\DAL\bin\Debug\DAL.dll.config
+C:\Users\CWR\Desktop\WORK\kate\Developing\mvc-projects\GalaLocalVersion 322016\DAL\bin\Debug\DAL.dll
+C:\Users\CWR\Desktop\WORK\kate\Developing\mvc-projects\GalaLocalVersion 322016\DAL\bin\Debug\DAL.pdb
+C:\Users\CWR\Desktop\WORK\kate\Developing\mvc-projects\GalaLocalVersion 322016\DAL\bin\Debug\System.Web.Mvc.dll
+C:\Users\CWR\Desktop\WORK\kate\Developing\mvc-projects\GalaLocalVersion 322016\DAL\bin\Debug\System.Web.Razor.dll
+C:\Users\CWR\Desktop\WORK\kate\Developing\mvc-projects\GalaLocalVersion 322016\DAL\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\CWR\Desktop\WORK\kate\Developing\mvc-projects\GalaLocalVersion 322016\DAL\bin\Debug\System.Web.WebPages.dll
+C:\Users\CWR\Desktop\WORK\kate\Developing\mvc-projects\GalaLocalVersion 322016\DAL\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\CWR\Desktop\WORK\kate\Developing\mvc-projects\GalaLocalVersion 322016\DAL\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\CWR\Desktop\WORK\kate\Developing\mvc-projects\GalaLocalVersion 322016\DAL\bin\Debug\System.Web.Mvc.xml
+C:\Users\CWR\Desktop\WORK\kate\Developing\mvc-projects\GalaLocalVersion 322016\DAL\bin\Debug\System.Web.Razor.xml
+C:\Users\CWR\Desktop\WORK\kate\Developing\mvc-projects\GalaLocalVersion 322016\DAL\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\CWR\Desktop\WORK\kate\Developing\mvc-projects\GalaLocalVersion 322016\DAL\bin\Debug\System.Web.WebPages.xml
+C:\Users\CWR\Desktop\WORK\kate\Developing\mvc-projects\GalaLocalVersion 322016\DAL\bin\Debug\Microsoft.Web.Infrastructure.xml
+C:\Users\CWR\Desktop\WORK\kate\Developing\mvc-projects\GalaLocalVersion 322016\DAL\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\CWR\Desktop\WORK\kate\Developing\mvc-projects\GalaLocalVersion 322016\DAL\obj\Debug\DAL.dll
+C:\Users\CWR\Desktop\WORK\kate\Developing\mvc-projects\GalaLocalVersion 322016\DAL\obj\Debug\DAL.pdb
+C:\Users\CWR\Desktop\WORK\kate\Developing\mvc-projects\GalaLocalVersion 322016\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+C:\Users\Clever Design\Desktop\Work\DisocarRodriguez\MVC-Project\GalaFinalRepo\DAL\bin\Debug\DAL.dll.config
+C:\Users\Clever Design\Desktop\Work\DisocarRodriguez\MVC-Project\GalaFinalRepo\DAL\bin\Debug\DAL.dll
+C:\Users\Clever Design\Desktop\Work\DisocarRodriguez\MVC-Project\GalaFinalRepo\DAL\bin\Debug\DAL.pdb
+C:\Users\Clever Design\Desktop\Work\DisocarRodriguez\MVC-Project\GalaFinalRepo\DAL\bin\Debug\System.Web.Mvc.dll
+C:\Users\Clever Design\Desktop\Work\DisocarRodriguez\MVC-Project\GalaFinalRepo\DAL\bin\Debug\System.Web.Razor.dll
+C:\Users\Clever Design\Desktop\Work\DisocarRodriguez\MVC-Project\GalaFinalRepo\DAL\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\Clever Design\Desktop\Work\DisocarRodriguez\MVC-Project\GalaFinalRepo\DAL\bin\Debug\System.Web.WebPages.dll
+C:\Users\Clever Design\Desktop\Work\DisocarRodriguez\MVC-Project\GalaFinalRepo\DAL\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\Clever Design\Desktop\Work\DisocarRodriguez\MVC-Project\GalaFinalRepo\DAL\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\Clever Design\Desktop\Work\DisocarRodriguez\MVC-Project\GalaFinalRepo\DAL\bin\Debug\System.Web.Mvc.xml
+C:\Users\Clever Design\Desktop\Work\DisocarRodriguez\MVC-Project\GalaFinalRepo\DAL\bin\Debug\System.Web.Razor.xml
+C:\Users\Clever Design\Desktop\Work\DisocarRodriguez\MVC-Project\GalaFinalRepo\DAL\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\Clever Design\Desktop\Work\DisocarRodriguez\MVC-Project\GalaFinalRepo\DAL\bin\Debug\System.Web.WebPages.xml
+C:\Users\Clever Design\Desktop\Work\DisocarRodriguez\MVC-Project\GalaFinalRepo\DAL\bin\Debug\Microsoft.Web.Infrastructure.xml
+C:\Users\Clever Design\Desktop\Work\DisocarRodriguez\MVC-Project\GalaFinalRepo\DAL\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\Clever Design\Desktop\Work\DisocarRodriguez\MVC-Project\GalaFinalRepo\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+C:\Users\Clever Design\Desktop\Work\DisocarRodriguez\MVC-Project\GalaFinalRepo\DAL\obj\Debug\DAL.dll
+C:\Users\Clever Design\Desktop\Work\DisocarRodriguez\MVC-Project\GalaFinalRepo\DAL\obj\Debug\DAL.pdb

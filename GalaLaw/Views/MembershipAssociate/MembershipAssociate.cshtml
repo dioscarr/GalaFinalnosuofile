@@ -1,0 +1,85 @@
+﻿
+@{
+    ViewBag.Title = "MembershipAssociate";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<section class="about_content_slider">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h2 class="about_title text_uppercase">Join GALA</h2>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bg_contact">
+    <div class="container content">
+        <div class="row">
+            <div class="col-xs-12">
+                <ol class="breadcrumb mobile_display_none">
+                    <li><a href="~/Home">Home</a></li>
+                    <li class="active">Join GALA</li>
+                </ol>
+                <h1 class="content_title_news text_uppercase">Gala Associate membership</h1>
+            </div>
+        </div>
+
+        <div class="row content_text">
+            <div class="col-sm-8 col-xs-12 content_global">
+                <p>Founded in 1998, the Global Advertising Lawyers Alliance (GALA) began as an alliance of lawyers located in law firms throughout the world with expertise and experience in advertising, marketing, and promotion law. The membership continues today to serve as a leading worldwide resource to individuals and corporations interested in answers to questions and solutions to problems involving the complex legal issues affecting advertisers and marketers.</p>
+                <p>Among other things, GALA offers access to experienced practitioners of advertising, marketing, intellectual property, entertainment and promotion law and facilitates "one stop" international marketing clearance advice. With GALA members at their side, one can be confident that marketing material in all categories - from radio, TV and print to theatrical, internet and mobile - conforms with global, regional and national legal and cultural requirements, as well as clearance of international activities within the intellectual property and entertainment endeavors.</p>
+                <p>GALA's membership structure is designed for one member law firm per country. Currently, GALA has 67 member firms from countries in all global regions. The Alliance is divided into three regions: the Americas, Asia Pacific & Africa, and Europe, Middle East & Africa (EMEA). GALA members meet once per year at a global meeting and once or twice per year regionally. In between meetings, members keep in regular contact, working as a team on international assignments for shared clients, exchanging information about the latest global marketing law developments, and collectively presenting at seminars and workshops.</p>
+                <p>GALA Associate Membership is open to in-house counsel and marketing professionals of advertisers, advertising agencies, business consultants, and trade associations. As an Associate Member, in-house counsel or professionals are invited to enjoy all the benefits of Associate Membership.</p>
+                <span class="Executive_Committee membershipQuestion">Why become an Associate Member?</span>
+                <br />
+                <span class="memberAssociateBenef">Here are some of the benefits:</span>
+                <ul class="memberAssociateList">
+                    <li>Subscription to the bi-monthly GALA Gazette.</li>
+                    <li>Alerts on global advertising law developments.</li>
+                    <li>Digital copies of GALA’s advertising law books (and exclusive discounts on hard copies).</li>
+                    <li>Invitations to GALA advertising law events around the world.</li>
+                    <li>Invitations to GALA’s annual dinner.</li>
+                    <li>Exclusive access to free online CLE programs on global advertising law topics. (coming soon).</li>
+                    <li>Exclusive access to online global advertising law resources (coming soon).</li>
+                    <li>Exclusive access to customized CLE programs for your in-house legal team.</li>
+                    <li>And more!</li>
+                </ul>
+                <span class="Executive_Committee membershipQuestion">If you're interested in membership, please click on the link below.</span>
+                <br />
+                <span class="Executive_Committee membershipQuestion"><a class="joinLink" herf="#">Please click here to complete the Application Form.</a></span>
+                <p>* GALA does not practice law. GALA acts only as a communication channel. Responsibility for any legal advice rests solely with the individual law firms.</p>
+            </div>
+
+            <div class='col-sm-4 col-xs-12 membership'>
+                <div class="news_block">
+                    <div class="stuffing_news about_stuffing_news">
+                        <div class="home_member about_home_member">
+                            <h1 class="member_title about_member_title text_uppercase">join gala</h1>
+                            <div class="member_info about_member_info">
+                                <p>For information about joining GALA as a law firm member, see Membership.</p>
+                                <input class="text_uppercase" type="submit" value="MEMBERSHIP" onclick="window.location.href ='@Url.Action("Membership","Membership")';">
+                            </div>
+                            <div class="member_info about_member_info">
+                                <p>For information about joining GALA as a corporate member, see Associate Membership.</p>
+                                <input class="text_uppercase" type="submit" value="ASSOCIATE MEMBERSHIP" onclick="window.location.href ='@Url.Action("MembershipAssociate","MembershipAssociate")';">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="row">
+
+        </div>
+        <div class="row">
+
+        </div>
+    </div>
+
+</section>
+

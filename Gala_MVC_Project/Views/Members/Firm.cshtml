@@ -1,0 +1,251 @@
+﻿@model Gala_MVC_Project.Models.FirmModel
+
+@{
+    ViewBag.Title = "Members";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<section class="about_content_slider">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h2 class="about_title text_uppercase">@ViewBag.country</h2>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bg_contact">
+    <div class="container content">
+        <div class="row">
+            <div class="mobile_display_none col-xs-12">
+                <ol class="breadcrumb">
+                    <li>
+                        <a href="~/Home">Home</a>
+                    </li>
+                    <li>
+                        <a href="~/Members/MemberList">Members</a>
+                    </li>
+                    <li>
+                        <a href="~/Members/Firm?id=@Model.Firm.Id&Country=@ViewBag.country">@ViewBag.country</a>
+                    </li>
+                    <li class="active">@Model.Firm.FirmName</li>
+                </ol>
+            </div>
+        </div>
+        <div class="row content_text">
+            <div class="mobile_content_global col-xs-9 content_global">
+                <div class="bio_top_title">
+                    <div class="pull-left">
+                        <h1 class="content_title_news">@Model.Firm.FirmName</h1>
+                    </div>
+                    <div class="pull-right print_share">
+                        <a href="javascript:window.print();"><img src="~/Images/print.png" alt="Print"></a>
+                        <a href="http://www.addthis.com/bookmark.php"
+                           class="addthis_button"
+                           style="text-decoration:none;">
+                            <img src="~/Images/share.png" alt="Share" />
+                        </a> 
+                    </div>
+                </div>
+                <hr>
+                <div class="mobile_display_block">
+                    @*<h4 class="bio_left_title text_uppercase">@Model.Firm.FirmName</h4>*@
+                    <div class="bio_contact_info">
+                    
+                        <p>
+                            <span>@Model.Firm.Address</span>
+                        </p>
+                        <p>
+                            <span>@Model.Firm.City @Model.Firm.Zip, @Model.Firm.Country</span>
+                        </p>
+                        <p>
+                            <span>Tel:     @Model.Firm.Tel</span>
+                        </p>
+                        <p>
+                            <span>Fax:    @Model.Firm.Fax</span>
+                        </p>
+                        <p>
+                            <span>Web:   <a href="http://@Model.Firm.web" target="_blank">@Model.Firm.web</a></span>
+                        </p>
+                    </div>
+                    @foreach (var member in Model.Firm.Team)
+                    {
+                        <div class="about_member_block firm_member_block">
+                            <div class="about_member_person">
+                                <div class="pull-left about_member_person_img firm_member_person_img">
+                                    <img src="~/Images/@member.Picture" />
+                                </div>
+                                <div class="pull-right about_member_person_info firm_member_person_info">
+                                    <h3>@member.FName @member.LName</h3>
+                                    <span><a class="" href="mailto:@member.Email">@member.Email</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+
+                </div>
+
+                <div class="bio_member_content_info">
+                   
+                    @Html.Raw(@Model.Firm.AboutContent)
+                    <hr>
+
+                    <h4 class="bio_contact_info_title">Recent News & Press</h4>
+                    @foreach (var news in @Model.Firm.Events1.Where(c => c.Type == "News" || c.Type == "Press").OrderByDescending(c => c.Published).Select(c => c).Take(5).ToList())
+                    {
+                        if (@news.Content != null)
+                        {
+                            var Contentnews = Html.Raw(@news.Content);
+                            if (Contentnews.ToHtmlString().EndsWith("</a>"))
+                            {
+                                <p class="events_text_content">
+                                    <span class="event_data pull-left">@String.Format("{0:MMM d, yyyy}", @news.Published)</span>
+                                    <br />
+                                    <span class="events_content pull-left">@Contentnews</span>
+                                </p>
+                                <br />
+                            }
+                            else
+                            {
+                                <p class="events_text_content">
+                                    <a href="~/Events/Article/@news.id">
+                                        <span class="event_data pull-left"> @String.Format("{0:MMM d, yyyy}", @news.Published)</span>
+                                        <br />
+                                        <span class="events_content pull-left">@Html.Raw(@news.Heading)</span></a>
+                                </p>
+                                <br />
+                            }
+                        }
+                        else {
+                            <p class="events_text_content">
+                                <a href="~/Events/Article/@news.id">
+                                    <span class="event_data pull-left"> @String.Format("{0:MMM d, yyyy}", @news.Published)</span>
+                                    <br />
+                                    <span class="events_content pull-left">@Html.Raw(@news.Heading)</span>
+                                </a>
+                            </p>
+                            <br />
+
+                        }
+                    }
+
+                    <a href="~/Members/FirmArchive?FirmID=@Model.Firm.Id&type=News&Firm=@Model.Firm.FirmName">Show more News...</a>| <a href="~/Members/FirmArchive?FirmID=@Model.Firm.Id&type=Press&Firm=@Model.Firm.FirmName">Show more Press...</a>
+
+                    <hr>
+
+                    <h4 class="bio_contact_info_title">Recent Publications</h4>
+                    
+                   @if (@Model.Gazettes != null)
+                   {
+                       foreach (var article in @Model.Gazettes)
+                       {
+                        <h4 class="gazette_country">
+                            @if (@article.Firm != null)
+                        { @article.Firm.Country}
+                    </h4>
+                        <p><span class="text_uppercase"><a href="~/Publication/GazetteArticle/@article.Id">@article.header</a></span></p>
+                        <p>
+                            @{var content = @Html.Raw(@article.Content); }
+                            @if (@content != null) { }
+                            @Model.Truncate(content.ToString(), 225, "...", true)
+                            content
+                        </p>
+            <br>
+                        }
+                    }
+
+        <br />
+                    <a href="~/publication/GazetteArchive?firmID=@Model.Firm.Id">Show more Gazettes...</a>
+                    <br />
+
+                    <hr>
+
+                    <h4 class="bio_contact_info_title">Recent Events</h4>
+                    @foreach (var news in @Model.Firm.Events1.Where(c => c.Type == "Gala Events" |c.Type=="Other Events").OrderByDescending(c => c.Published).Select(c => c).Take(5).ToList())
+                    {
+                        if (@news.Content != null)
+                        {
+                            var Contentnews = Html.Raw(@news.Content);
+                            if (Contentnews.ToHtmlString().EndsWith("</a>"))
+                            {
+                                <p class="events_text_content">
+                                    <span class="event_data pull-left">@String.Format("{0:MMM d, yyyy}", @news.Published)</span><span class="events_content pull-right">@Contentnews</span>
+                                </p>
+                            }
+                            else
+                            {
+                                <p class="events_text_content">
+                                    <a href="~/Events/Article/@news.id"><span class="event_data pull-left"> @String.Format("{0:MMM d, yyyy}", @news.Published)</span><span class="events_content pull-right">@Html.Raw(@news.Heading)</span></a>
+                                </p>
+                            }
+                        }
+                        else {
+                            <p class="events_text_content">
+                                <a href="~/Events/Article/@news.id"><span class="event_data pull-left"> @String.Format("{0:MMM d, yyyy}", @news.Published)</span><span class="events_content pull-right">@Html.Raw(@news.Heading)</span></a>
+                            </p>
+
+                        }
+                    }
+
+                    <br />
+                    <a href="~/Members/FirmArchive?FirmID=@Model.Firm.Id&type=Gala Events&Firm=@Model.Firm.FirmName">Show more Gala Events...</a>|
+                     <a href="~/Members/FirmArchive?FirmID=@Model.Firm.Id&type=Other Events&Firm=@Model.Firm.FirmName">Show more Other Events...</a>
+
+                    <br />
+                </div>
+            </div>
+            <div class="mobile_content_global col-xs-3">
+                @*<h4 class="bio_left_title text_uppercase">@Model.Firm.FirmName</h4>*@
+                <div class="bio_contact_info">
+                    <h4 class="bio_contact_info_title"></h4>
+                    <p>
+                        <span>@Model.Firm.Address</span>
+                    </p>
+                    <p>
+                        <span>@Model.Firm.City @Model.Firm.Zip @Model.Firm.Country</span>
+                    </p>
+                    <p>
+                        <span>Tel:   @Model.Firm.Tel</span>
+                    </p>
+                    <p>
+                        <span>Fax:   @Model.Firm.Fax</span>
+                    </p>
+                    <p>
+                        <span>Web:   <a href="http://@Model.Firm.web" target="_blank">@Model.Firm.web</a></span>
+                    </p>
+                </div>
+
+                @foreach (var member in Model.Firm.CMFRelation.GroupBy(c=>c.FID).Select(x=>x.First().Team ).ToList())
+                {
+                        <div class="about_member_block firm_member_block">
+                            <div class="about_member_person">
+                                <div class="pull-left about_member_person_img firm_member_person_img">
+                                    <img src="~/Images/Members/@member.Picture" />
+                                </div>
+                                <div class="pull-right about_member_person_info firm_member_person_info">
+                                    <h3>
+                                        <a href="~/Members/member/@member.Id/@member.CMFRelation.Where(s=>s.FID == Model.Firm.Id).GroupBy(c=>c.MID).Select(c=>c.First().Firm).FirstOrDefault().Id/@ViewBag.country"> @member.FName @member.LName</a>
+                                    </h3>
+                                    <span><a class="" href="mailto:@member.Email">@member.Email</a></span>
+                                </div>
+                            </div>
+                        </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+@section scripts{
+
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-56c77f564b126cf8"></script>
+
+
+}

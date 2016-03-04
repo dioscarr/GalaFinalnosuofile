@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b3e378bc9ea84f848cefbb76d4a892af" Name="Diagram1" ZoomLevel="106">
+        <EntityTypeShape EntityType="DB_97691_galadbModel.Aboutus" Width="1.5" PointX="2.75" PointY="6.75" />
+        <EntityTypeShape EntityType="DB_97691_galadbModel.CMFRelation" Width="1.5" PointX="4.75" PointY="12.875" />
+        <EntityTypeShape EntityType="DB_97691_galadbModel.Country" Width="1.5" PointX="0.75" PointY="5.625" />
+        <EntityTypeShape EntityType="DB_97691_galadbModel.Events" Width="1.5" PointX="5.25" PointY="19.75" />
+        <EntityTypeShape EntityType="DB_97691_galadbModel.FCRelation" Width="1.5" PointX="6.25" PointY="9.875" />
+        <EntityTypeShape EntityType="DB_97691_galadbModel.Firm" Width="1.5" PointX="2.375" PointY="9.5" />
+        <EntityTypeShape EntityType="DB_97691_galadbModel.Gazette" Width="1.5" PointX="8.25" PointY="15.625" />
+        <EntityTypeShape EntityType="DB_97691_galadbModel.GazetteVolumes" Width="1.5" PointX="7" PointY="12" />
+        <EntityTypeShape EntityType="DB_97691_galadbModel.GMLink" Width="1.5" PointX="10.5" PointY="19.375" />
+        <EntityTypeShape EntityType="DB_97691_galadbModel.Home" Width="1.5" PointX="4.75" PointY="6.75" />
+        <EntityTypeShape EntityType="DB_97691_galadbModel.Publication" Width="1.5" PointX="6.75" PointY="6.75" />
+        <EntityTypeShape EntityType="DB_97691_galadbModel.publicationBooks" Width="1.5" PointX="8.75" PointY="6.75" />
+        <EntityTypeShape EntityType="DB_97691_galadbModel.Slider" Width="1.5" PointX="10.75" PointY="6.875" />
+        <EntityTypeShape EntityType="DB_97691_galadbModel.Team" Width="1.5" PointX="3" PointY="20.75" />
+        <AssociationConnector Association="DB_97691_galadbModel.FK_CMFRelation_Country" />
+        <AssociationConnector Association="DB_97691_galadbModel.FK_CMFRelation_Firm" />
+        <AssociationConnector Association="DB_97691_galadbModel.FK_CMFRelation_Member" />
+        <AssociationConnector Association="DB_97691_galadbModel.Country_FCRelation" />
+        <AssociationConnector Association="DB_97691_galadbModel.FK_Events_Firm1" />
+        <AssociationConnector Association="DB_97691_galadbModel.FK_Events_Member" />
+        <AssociationConnector Association="DB_97691_galadbModel.Firm_FCRelation" />
+        <AssociationConnector Association="DB_97691_galadbModel.FK_Gazette_Firm" />
+        <AssociationConnector Association="DB_97691_galadbModel.FK_Member_Firm" />
+        <AssociationConnector Association="DB_97691_galadbModel.FK_Gazette_GazetteVolumes" />
+        <AssociationConnector Association="DB_97691_galadbModel.FK_Gazette_Team" />
+        <AssociationConnector Association="DB_97691_galadbModel.Gazette_GMLink" />
+        <AssociationConnector Association="DB_97691_galadbModel.Member_GMLink" />
+        <EntityTypeShape EntityType="DB_97691_galadbModel.Contact" Width="1.5" PointX="10.75" PointY="10.625" />
+        <EntityTypeShape EntityType="DB_97691_galadbModel.AspNetRoles" Width="1.5" PointX="0.75" PointY="2" />
+        <EntityTypeShape EntityType="DB_97691_galadbModel.AspNetUsers" Width="1.5" PointX="3" PointY="1" />
+        <EntityTypeShape EntityType="DB_97691_galadbModel.PassRelation" Width="1.5" PointX="5.625" PointY="24.25" />
+        <AssociationConnector Association="DB_97691_galadbModel.FK_PassRelation_Team" />
+        <AssociationConnector Association="DB_97691_galadbModel.AspNetUserRoles" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

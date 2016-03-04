@@ -1,0 +1,274 @@
+﻿@model GalaLaw.Models.HomeModel
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+<section class="content_slider">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-8 small_home_bg">
+                <div class="small_home_bg_text">
+
+                    <h2 class="title_slider text_uppercase">DID YOU KNOW?</h2>
+                    <div id="carousel-example-generic" class="carousel slide carousel-fade" data-ride="carousel" data-interval="10000">
+                        <!-- Wrapper for slides -->
+                        <ol class="carousel-indicators">
+                            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+                        </ol>
+                        <div class="carousel-inner text_slider">
+                            <div class="item active">
+                                <p class="lead">
+                                    @Model.Sliders[0].Content
+
+                                </p>
+                            </div>
+                            <div class="item">
+                                <p class="lead">
+                                    @Model.Sliders[1].Content
+
+
+                                </p>
+                            </div>
+                            <div class="item">
+                                <p class="lead">
+                                    @Model.Sliders[2].Content
+
+
+                                </p>
+                            </div>
+                            <div class="item">
+                                <p class="lead">
+                                    @Model.Sliders[3].Content
+
+
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class='col-xs-4 padding_form'>
+                <div class="left_form"> 
+                    <form class="form_action" action="index_submit" method="get" accept-charset="utf-8">
+                        <h1 class="member_title text_uppercase">find a lawyer</h1> 
+                        <div class="home_find_member dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" ><span data-bind="text:selectedCountry">country</span><span class="caret"></span></a>
+                            <ul class="dropdown-menu pre-scrollable">
+                                @foreach (var country in @Model.countries.OrderBy(c=>c.CountryName).ToList() )
+                                {
+                                    <li><a href="#" data-bind="click:function(){assignSelectedVal(@country.Id,'@country.CountryName');}">@country.CountryName</a></li>
+                                }
+                            </ul>
+                        </div>
+                        <div class="home_find_member dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span data-bind="text:FirmName">law firm</span><span class="caret"></span></a>
+                            <ul class="dropdown-menu pre-scrollable">
+                                @foreach (var Firms in @Model.Firms.Where(c=>c!=null).GroupBy(c=>c.Id).Select(c=>c.FirstOrDefault()).OrderBy(c=>c.FirmName).ToList())
+                                {
+                                    <li><a href="#" data-bind="click:function(){assignSelectedFirmVal(@Firms.Id,'@Firms.FirmName');}">@Firms.FirmName</a></li>
+                                }
+                            </ul>
+                        </div>
+                        <div class="home_find_member dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span data-bind="text:Name">last name, first name </span><span class="caret"></span></a>
+                            <ul class="dropdown-menu pre-scrollable">
+                                @foreach (var Team in @Model.Teams.Where(c => c != null).GroupBy(c => c.Id).Select(c => c.FirstOrDefault()).OrderBy(c => c.FName).ToList())
+                                {
+                                    <li><a href="#" data-bind="click:function(){assignSelectedTeamVal(@Team.Id,'@Team.FName @Team.FName');}">@Team.FName @Team.LName</a></li>
+                                }
+                            </ul>
+                        </div>
+                        <!-- <input type="text" name="" value="" placeholder="country"><br>
+                        <input type="text" name="" value="" placeholder="low firm"><br>
+                        <input type="text" name="" value="" placeholder="last name, first name"> -->
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bg_contact">
+    <div class="container content spesial_padding_forhomepage">
+        <div class="row content_text">
+            <div class="col-xs-8 content_home_global">
+                <h1 class="content_title_news text_uppercase">@Model.Home.Header</h1>
+                  @Html.Raw(@Model.Home.Content)
+            </div>
+            <div class='col-xs-4 news_block news_block_home_page'>
+                <div class="stuffing_news">
+                    <div class="home_member">
+                        <h1 class="member_title member_title_news text_uppercase">gala in the news</h1>
+                        @foreach (var news in @Model.News)
+                        {
+
+                            if (@news.Content != null)
+                            {
+                                var Contentnews = Html.Raw(@news.Content);
+                                if (Contentnews.ToHtmlString().EndsWith("</a>"))
+                                {
+                                    var stringcontent = @Html.Raw(@news.Content).ToString();
+                                    <div class="news_img_discr">
+                                        @if (news.Team != null)
+                                        {
+                                        <div class="home_news_image pull-left">
+                                            <img src="images/Members/@news.Team.Picture" alt="">
+                                        </div>
+                                            }
+                                        <div class="home_news_content pull-right">
+                                            <p class="home_news_content_p">@Contentnews</p>
+                                            <span><a class="text_uppercase" href="#">read more ></a></span>
+                                        </div>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="news_img_discr">
+                                        @if (news.Team != null)
+                                        {
+                                            <div class="home_news_image pull-left">
+                                                <img src="images/Members/@news.Team.Picture" alt="">
+                                            </div>
+                                        }
+                                        else
+                                        {
+                                            <div class="home_news_image pull-left">
+                                                <img src="images/Members/noimg.jpg" alt="">
+                                            </div>
+                                        }
+
+                                        <div class="home_news_content pull-right">
+                                            <p class="home_news_content_p">@Html.Raw(@news.Heading)</p>
+                                            <span><a class="text_uppercase" href="#"></a></span>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                            else
+                            {
+
+                                <div class="news_img_discr">
+                                   @if (news.Team != null)
+                                   {
+                                    <div class="home_news_image pull-left">
+                                        <img src="images/Members/@news.Team.Picture" alt="">
+                                    </div>
+                                   }
+                                   else
+                                   {
+                                    <div class="home_news_image pull-left">
+                                        <img src="images/Members/noimg.jpg" alt="">
+                                    </div>
+                                   }
+                                   
+                                    <div class="home_news_content pull-right">
+                                        <p class="home_news_content_p">@Html.Raw(@news.Heading)</p>
+                                        <span><a class="text_uppercase" href="#"></a></span>
+                                    </div>
+                                </div>
+                                   
+
+                                }
+
+                            
+
+
+
+
+
+
+
+
+
+                           
+                        }
+                        
+                        @*<div class="news_img_discr">
+                            <div class="home_news_image pull-left">
+                                <img src="images/news-1.jpg" alt="">
+                            </div>
+                            <div class="home_news_content pull-right">
+                                <p class="home_news_content_p">Felix Hofer's (Italy) participation in AIPPI seminar on Ambush Marketing covered in Italia Oggi.</p>
+                                <span><a class="text_uppercase" href="#">read more ></a></span>
+                            </div>
+                        </div>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+@section scripts{
+<script src="~/Scripts/knockout-3.4.0.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+        $('.content_text').css("height", ($(window).height() - $('#wrapper2').height()) + $('.content_text').height());
+    });
+
+    $(window).resize(function () {
+        $('.content_text').css("height", ($(window).height() - $('#wrapper2').height()) + $('.content_text').height());
+    });
+
+
+
+    var viewModel = function(){
+        var self = this;
+
+
+
+
+
+     
+
+        self.SelectedValue = ko.observable();
+        self.selectedCountry = ko.observable("Country");
+        self.FirmName = ko.observable("Firm Name");
+        self.Name = ko.observable("last name, first name ");
+
+        self.assignSelectedVal = function (id, CountryName) {
+            debugger;
+            var link = '@Url.Action("MemberList", "Members", new { CountryID = "-1" })';
+                link = link.replace("-1", id);
+                self.selectedCountry(CountryName);
+                window.location.href = link
+            }
+
+
+            self.assignSelectedFirmVal = function (id, FirmName) {
+              
+                var link = '@Url.Action("MemberList", "Members", new { FirmID = "-1" })';
+                link = link.replace("-1", id);
+                self.FirmName(FirmName);
+                window.location.href = link
+            }
+
+        self.assignSelectedTeamVal = function (id, FirmName) {
+            debugger;
+            var link = '@Url.Action("MemberList", "Members", new { memberID = "-1" })';
+            link = link.replace("-1", id);
+            self.Name(FirmName);
+            window.location.href = link
+        }
+
+        }
+
+        ko.applyBindings(viewModel());
+
+
+    </script>
+}
+
+
+
+
+

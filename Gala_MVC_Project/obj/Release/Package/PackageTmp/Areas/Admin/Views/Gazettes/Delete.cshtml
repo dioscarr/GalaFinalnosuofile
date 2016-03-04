@@ -1,0 +1,95 @@
+﻿@model DAL.Models.Gazette
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_Secomdary_Layout.cshtml";
+}
+
+<div class="container" style="background:white;">
+
+    <div class="row" style="padding:50px 50px;">
+
+
+        <h3>Are you sure you want to delete this?</h3>
+        <div>
+            <h4>Gazette</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.header)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.header)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Content)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Content)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Created)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Created)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Modified)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Modified)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.isDeleted)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.isDeleted)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Firm.FirmName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Firm.FirmName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.GazetteVolumes.GazetteVolume)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.GazetteVolumes.GazetteVolume)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Team.Type)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Team.Type)
+                </dd>
+
+            </dl>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color">
+                    <input type="submit" value="Delete" class="btn btn-default" /> |
+                    @Html.ActionLink("Back to List", "Index")
+                </div>
+            }
+        </div>
+    </div>
+</div>

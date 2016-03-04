@@ -1,0 +1,140 @@
+﻿@model Gala_MVC_Project.Areas.Admin.Models.EventsModel
+
+@{
+    ViewBag.Title = "Insert";
+    Layout = "~/Areas/Admin/Views/Shared/_Secomdary_Layout.cshtml";
+}
+<div class="container">
+    <div class="row outer-Box" style=" margin-top:20px; padding-bottom:0!important;">
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    Please update the informat on the form
+                </div>
+                <div class="panel-body" style="background:#f3f3f3;">
+                    <div class="form-group " style="padding-bottom:0!important;">
+
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+
+                            <div class="form-horizontal">
+
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                                @Html.HiddenFor(c => c.Events.id)
+                                @Html.HiddenFor(c => c.Events.Created)
+                                @Html.HiddenFor(c => c.Events.isDeleted)
+                                @Html.HiddenFor(c => c.Events.Type)
+                                @Html.HiddenFor(c => c.Events.FirmID)
+                                @Html.HiddenFor(c => c.Events.MemberID)
+
+
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Events.Heading, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.Events.Heading, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Events.Heading, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+                                Check this box to upload PDF: @Html.CheckBox("isNewPicture", new { id = "showuploadID" })
+
+                                <div class="form-group" id="showuploadoption" style="display:none;">
+                                    <div class="col-md-offset-2 col-md-10">
+                                        @Html.TextBox("ImageUpload", null, new { @type = "file" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group" id="contentID">
+                                    @Html.LabelFor(model => model.Events.Content, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.TextAreaFor(model => model.Events.Content, 80, 10, new { @class = "form-control ckeditor investment-detail-content", @name = "editor1" })
+                                        @Html.ValidationMessageFor(model => model.Events.Content, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Events.Published, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.Events.Published, new { htmlAttributes = new { @class = "form-control", id= "datetimeidS" } })
+                                        @Html.ValidationMessageFor(model => model.Events.Published, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+
+
+
+
+                                <div class="form-group">
+                                    <div class="col-md-offset-2 col-md-10">
+                                        <input type="submit" value="Update" class="btn btn-default" />
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                        <div>
+                            @Html.ActionLink("Back to List", "Index")
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+
+
+
+    <link href="~/Content/prettify.css" rel="stylesheet" />
+
+    <script src="~/Scripts/jquery-2.1.4.min.js"></script>
+    <link href="~/Content/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap-datetimepicker.js"></script>
+    <script src="~/Scripts/ckeditor/ckeditor.js"></script>
+    <script src="~/Scripts/bootstrap-datetimepicker.fr.js"></script>
+
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+
+
+<script type="text/javascript">
+        $(document).ready(function () {
+
+
+
+            $('#datetimeid').datepicker();
+            $('#contentID').slideDown();
+            $('#showuploadID').change(function () {
+                if ($(this).is(':checked')) {
+                    $('#contentID').slideUp();
+                    $('#showuploadoption').slideDown();
+
+
+
+                } else {
+                    $('#showuploadoption').slideUp();
+                    $('#contentID').slideDown();
+                };
+            });
+
+
+
+
+        });
+
+
+
+
+
+</script>
+}

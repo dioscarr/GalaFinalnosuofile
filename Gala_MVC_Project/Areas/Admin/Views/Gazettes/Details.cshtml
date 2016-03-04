@@ -1,0 +1,80 @@
+﻿@model DAL.Models.Gazette
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Secomdary_Layout.cshtml";
+}
+
+<div class="container" style="background:white;">
+
+    <div class="row" style="padding:50px 50px;">
+
+        <div>
+            <h4>Gazette</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.header)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.header)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Content)
+                </dt>
+
+                <dd>
+                    @Html.Raw(@Model.Content)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Created)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Created)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Modified)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Modified)
+                </dd>
+
+                    <dt>
+                    @Html.DisplayNameFor(model => model.Firm.FirmName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Firm.FirmName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.GazetteVolumes.GazetteVolume)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.GazetteVolumes.GazetteVolume)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Team.Type)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Team.Type)
+                </dd>
+
+            </dl>
+        </div>
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+
+    </div>
+</div>

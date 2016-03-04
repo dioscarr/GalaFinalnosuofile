@@ -1,0 +1,252 @@
+﻿@model Gala_MVC_Project.Areas.Admin.Models.FirmModel
+
+@{
+  
+    ViewBag.Title = "Firms";
+    Layout = "~/Areas/Admin/Views/Shared/Admin_Layout.cshtml";
+}
+
+
+
+<div class="container">
+    <div class="row outer-Box" style=" margin-top:20px; padding-bottom:0!important;">
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Step <span class="badge ">1</span> <span class="label label-primary"> Select a Coountry </span> </div>
+                <div class="panel-body">
+                    <div class="form-group " style="padding-bottom:0!important;">
+
+
+                        
+                        <p>
+                            @Html.ActionLink("Create New", "Index")
+                        </p>
+                        <table class="table table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Firm Name
+                                    </th>
+                                    <th>
+                                        Country
+                                    </th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            
+                            <tbody id="fbody">
+
+                                @foreach (var item in Model.Firms.OrderBy(f => f.Country))
+                                {
+
+                                    <tr class="hitmeaddMember">
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.FirmName)
+                                        </td>
+
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Country)
+                                        </td>
+                                        <td>
+                                            <a href="#" class="existingdropdown">Add Existing Member</a>|
+                                            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                                            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                                            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                                        </td>
+                                    </tr>
+
+                                    <tr style="" class="addMember ">
+                                        <form action="http://localhost:57946/admin/countryfirm/Relationship" method="post">
+                                            @*<form action="http://cleverdesign.com/gala/countryfirm/Relationship" method="post">*@
+                                            @Html.AntiForgeryToken() 
+                                            <td colspan="2" class="col-md-4">
+                                                <div class="row outer-Box" style="margin-top:20px; padding-bottom:0!important;">
+                                                    <div class="col-md-12">
+                                                        <div class="panel panel-primary">
+                                                            <div class="panel-heading">Add New Member from the  List</div>
+                                                            <div class="panel-body">
+                                                                1) Select an existing member @Html.DropDownListFor(model => @model.MID, (IEnumerable<SelectListItem>)ViewBag.Members, "Assign a member to this firm", new { @class = "form-control Countryid ", id = "Countryid" })
+                                                                <i>if the member is not on the list please @Html.ActionLink("Add New Member", "AddNewMember", "AdminMember") to the list.</i>
+                                                                <hr />
+
+                                                                2) select a Location For the Member
+                                                                <br />
+
+
+
+
+                                                                <div class="btn-toolbar">
+                                                                    <div class="btn-group" data-toggle="buttons">
+
+
+
+
+
+
+                                                                        <div class="btn-group" data-toggle="buttons">
+                                                                            @foreach (var item2 in @item.FCRelation.ToList())
+                                                                            {
+                                                                                <label class="btn btn-default myTogglebtn" data-toggleid="@item2.Country.Id"><input type="radio" name="options" id="option7">@item2.Country.CountryName</label>
+
+                                                                            }
+
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <hr />
+                                                                <br />
+                                                                3) Click save to add the new member to this firm.
+                                                                <button type="button" class="btn btn-default pull-right col-lg-12 ADDAMEMBER" data-cid="@item.Country" data-fid="@item.Id">Save</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </form>
+
+                                            <!--Add Country Relationship-->
+                                            @using (@Html.BeginForm("AddFCRelation", "CountryFirm", FormMethod.Post))
+                                            {
+                                                @Html.HiddenFor(model => model.Fields.FirmID, new { id = "natureOfVisitField", Value = @item.Id })
+
+                                                <td colspan="2" class="col-md-4">
+                                                    <div class="row outer-Box" style="margin-top:20px; padding-bottom:0!important;">
+                                                        <div class="col-md-12">
+                                                            <div class="panel panel-warning">
+                                                                <div class="panel-heading">IF the country is no present please add it from the list</div>
+                                                                <div class="panel-body">
+                                                                    1) Select an existing Country @Html.DropDownListFor(model => @model.Fields.CountryID, (IEnumerable<SelectListItem>)ViewBag.Countries, "Assign a country to this firm", new { @class = "form-control Countryid ", id = "Countryid" })
+                                                                    <i> the Country is not on the list please @Html.ActionLink("Add New Country", "Insert", "AdminMember") to the list.</i>
+                                                                    <br />
+                                                                    <br />
+                                                                    2) Click save to add the selected country as another Location
+                                                                    <button type="submit" class="btn btn-default pull-right col-lg-12" data-cid="@item.Country" data-fid="@item.Id">Save</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            }
+                                            <td colspan="2" class="col-md-4">
+
+                                                <div class="row outer-Box" style="margin-top:20px; padding-bottom:0!important;">
+                                                    <div class="col-md-12">
+                                                        <div class="panel panel-danger">
+                                                            <div class="panel-heading">Remove Member </div>
+                                                            <div class="panel-body">
+                                                                <table class="table table-striped table-hover table-bordered">
+                                                                    <tr><th><h4>Members Part of this firm</h4></th><th></th></tr>
+                                                                    @foreach (var CMF in @item.CMFRelation.Where(c => c.FID == @item.Id && c.isDeleted == false).ToList())
+                                                                    {
+
+                                                                        if (@CMF.Team != null)
+                                                                        {
+                                                                            <tr>
+                                                                                <td>
+                                                                                    <a href="/Admin/AdminMember/Edit/@CMF.Team.Id"> @CMF.Team.FName @CMF.Team.LName</a>
+                                                                                    <br />
+                                                                                    @CMF.Country.CountryName
+                                                                                </td>
+                                                                                <td>
+                                                                                    @Html.ActionLink("Remove", "RemoveTeamfromCountry", new { id = CMF.Id })
+                                                                                </td>
+                                                                            </tr>
+                                                                        }
+
+                                                                    }
+
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </td>
+</tr>
+
+                                }
+                            </tbody>
+
+</table>
+                        </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section scripts{
+
+<script src="~/Scripts/jquery-2.1.4.min.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+    <script type="text/javascript">
+       
+
+
+        $(document).ready(function () {           
+                $(".myTogglebtn").slice(2, 3).button("toggle");
+           
+
+
+
+
+
+            $(".addMember").slideUp();
+           
+            
+            //global
+            var MemberID = "";
+            var clicked = "";
+            var CID1 = 0;
+
+            $('.myTogglebtn').click(function () {
+                debugger;
+                window.CID = $(this).attr("data-toggleid");
+            });
+
+            $('.hitmeaddMember').click(function () {
+                clicked = $(this);
+              //  $(this).next(".addMember").children().toggle()
+                $(this).next(".addMember").toggle("slow");
+            });
+            
+            $('.Countryid').change(function () {
+                MemberID= $(this).val();
+            });
+            $('.ADDAMEMBER').click(function () {
+                alert(window.CID);
+              
+                if (MemberID != "")
+                {//ajax call to save the relationship between contry, member and firm
+                   // var CID1 = $(this).attr("data-cid");
+                    var FID1 = $(this).attr("data-fid");
+                    $.ajax({
+                        type: "POST",
+                        url:'@Url.Action("Relationship", "CountryFirm")',
+                        data: { CID: window.CID, FID: FID1, MID: MemberID },
+                        datatype: "json",
+                        success: function (data) {
+
+        alert("successfully Added!");
+
+    }
+
+}).done(function(){
+                            window.location.reload();
+                        });
+                }
+                else
+                {
+                    alert("A member should be selected");
+                }
+                clicked.trigger("click");
+               
+               
+            });
+          
+        });
+    </script>
+}

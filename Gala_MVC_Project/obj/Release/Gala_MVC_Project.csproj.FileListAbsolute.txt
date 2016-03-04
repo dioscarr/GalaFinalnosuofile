@@ -1,0 +1,12 @@
+C:\Users\Clever Design\Desktop\Work\DisocarRodriguez\Gala\Gala_MVC_Project\Gala_MVC_Project\bin\Gala_MVC_Project.dll.config
+C:\Users\Clever Design\Desktop\Work\DisocarRodriguez\Gala\Gala_MVC_Project\Gala_MVC_Project\bin\Gala_MVC_Project.dll
+C:\Users\Clever Design\Desktop\Work\DisocarRodriguez\Gala\Gala_MVC_Project\Gala_MVC_Project\bin\Gala_MVC_Project.pdb
+C:\Users\Clever Design\Desktop\Work\DisocarRodriguez\Gala\Gala_MVC_Project\Gala_MVC_Project\bin\BLL.dll
+C:\Users\Clever Design\Desktop\Work\DisocarRodriguez\Gala\Gala_MVC_Project\Gala_MVC_Project\bin\DAL.dll
+C:\Users\Clever Design\Desktop\Work\DisocarRodriguez\Gala\Gala_MVC_Project\Gala_MVC_Project\bin\BLL.pdb
+C:\Users\Clever Design\Desktop\Work\DisocarRodriguez\Gala\Gala_MVC_Project\Gala_MVC_Project\bin\DAL.pdb
+C:\Users\Clever Design\Desktop\Work\DisocarRodriguez\Gala\Gala_MVC_Project\Gala_MVC_Project\obj\Release\Gala_MVC_Project.csprojResolveAssemblyReference.cache
+C:\Users\Clever Design\Desktop\Work\DisocarRodriguez\Gala\Gala_MVC_Project\Gala_MVC_Project\obj\Release\Gala_MVC_Project.dll
+C:\Users\Clever Design\Desktop\Work\DisocarRodriguez\Gala\Gala_MVC_Project\Gala_MVC_Project\obj\Release\Gala_MVC_Project.pdb
+C:\Users\Clever Design\Desktop\Work\DisocarRodriguez\Gala\Gala_MVC_Project\Gala_MVC_Project\bin\bin\Antlr3.Runtime.dll
+C:\Users\Clever Design\Desktop\Work\DisocarRodriguez\Gala\Gala_MVC_Project\Gala_MVC_Project\bin\bin\System.Data.dll

@@ -1,0 +1,67 @@
+﻿@model GalaLaw.Areas.Admin.Models.EventsModel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Secomdary_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row outer-Box" style=" margin-top:20px; padding-bottom:0!important;">
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    Please update the informat on the form
+                </div>
+                <div class="panel-body" style="background:#f3f3f3;">
+                    <div class="form-group " style="padding-bottom:0!important;">
+
+                        <div>
+
+                            <dl class="dl-horizontal">
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.Events.Type)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Events.Type)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.Events.Heading)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Events.Heading)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.Events.Content)
+                                </dt>
+
+                                <dd>
+                                    @Html.Raw(@Model.Events.Content)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.Events.Published)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Events.Published)
+                                </dd>
+
+
+
+                            </dl>
+                        </div>
+                        <p>
+                            @Html.ActionLink("Edit", "Update", new { id = Model.Events.id }) |
+                            @Html.ActionLink("Back to List", "Index")
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,111 @@
+﻿@model Gala_MVC_Project.Areas.Admin.Models.MemberModel
+@{
+    ViewBag.Title = "MemberList";
+    Layout = "~/Areas/Admin/Views/Shared/_Secomdary_Layout.cshtml";
+}
+
+<div class="row outer-Box" style=" margin-top:20px; padding-bottom:0!important;">
+    <div class="col-md-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">Step <span class="badge ">1</span> <span class="label label-primary"> Select a Coountry </span> </div>
+            <div class="panel-body">
+                <div class="form-group " style="padding-bottom:0!important;">
+
+
+                    <div class="col-md-12" style="margin:0 0 20px 0;">Filter Page: <input id="searchInput" value="Type To Filter" class="form-control copl-md-8"></div>
+                 
+                    <p>
+                        @Html.ActionLink("Add New Member", "AddNewMember")
+                    </p>
+                    <table class="table table-striped table-hover" >
+                        <thead>
+                            <tr>
+                                <th>
+
+                                    @Html.DisplayName("Country")
+                                </th>
+                                <th>
+
+                                    @Html.DisplayName("Firm")
+                                </th>
+
+                                <th>
+
+                                    @Html.DisplayName("Name")
+                                </th>
+                                <th></th>
+
+
+                            </tr>
+                        </thead>
+                        <tbody id="fbody">
+                            @foreach (var item in Model.MemberList)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Country)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Firm)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Name)
+
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink("Edit", "Edit", new { id = item.MID }) | @Html.ActionLink("Details", "Details", new { id = item.MID }) |  @Html.ActionLink("Delete", "DeleteRef", new { id = @item.id })
+                                    </td>
+
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section scripts{
+    
+    <script type="text/javascript">
+        $("#searchInput").keyup(function () {
+            //split the current value of searchInput
+            var data = this.value.split(" ");
+            //create a jquery object of the rows
+            var jo = $("#fbody").find("tr");
+            if (this.value == "") {
+                jo.show();
+                return;
+            }
+            //hide all the rows
+            jo.hide();
+
+            //Recusively filter the jquery object to get results.
+            jo.filter(function (i, v) {
+                var $t = $(this);
+                for (var d = 0; d < data.length; ++d) {
+                    if ($t.is(":contains('" + data[d] + "')")) {
+                        return true;
+                    }
+                }
+                return false;
+            })
+            //show the rows that match.
+            .show();
+        }).focus(function () {
+            this.value = "";
+            $(this).css({
+                "color": "black"
+            });
+            $(this).unbind('focus');
+        }).css({
+            "color": "#C0C0C0"
+        });
+
+    </script>
+    
+    }

@@ -1,0 +1,123 @@
+﻿@model Gala_MVC_Project.Models.EventsModel
+@{
+    ViewBag.Title = "NewList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<section class="about_content_slider">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h2 class="about_title text_uppercase">News & Press</h2>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bg_contact">
+    <div class="container content">
+        <div class="row">
+            <div class="col-xs-12">
+                <ol class="breadcrumb mobile_display_none">
+                    <li><a href="~/Home">Home</a></li>
+                    <li class="active">News & Pres</li>
+                </ol>
+            </div>
+        </div>
+        <div class="row content_text">
+            <div class="col-xs-8 content_global mobile_content_global">
+
+                <div class="bio_top_title">
+                    <div class="pull-left">
+                        <h1 class="content_title_news">GALA News Developments</h1>
+                    </div>
+                    <div class="pull-right print_share">
+                        <h4 class="events_archive text_uppercase"><a href="~/News/NewArchive/News">View Archive ></a></h4>
+                    </div>
+                </div>
+                <hr>
+                <div class="events_table">
+
+                    @foreach (var news in Model.news)
+                    {
+                        var Contentnews = Html.Raw(@news.Content);
+                        if (Contentnews.ToHtmlString().EndsWith("</a>"))
+                        {
+<p class="events_text_content">
+                              <span class="event_data pull-left">@String.Format("{0:MMM d, yyyy}", @news.Published)</span><span class="events_content pull-right">@Contentnews</span>
+                            </p>
+                        }
+                        else
+                        {
+                            <p class="events_text_content">
+                                <a href="~/News/NewsArticle/@news.id" class="eventlink"><span class="event_data pull-left">@String.Format("{0:MMM d, yyyy}", @news.Published)</span><span class="events_content pull-right">@Html.Raw(@Model.Truncate(Contentnews.ToString(), 80, "...", true))</span></a>
+                            </p>
+                        }
+
+                    }
+
+                   
+                    <a href="~/News/NewArchive/News">Show more...</a>
+                </div>
+
+                <div class="bio_top_title">
+                    <div class="pull-left">
+                        <h1 class="content_title_news">GALA Press Releases</h1>
+                    </div>
+                    <div class="pull-right print_share">
+                        <h4 class="events_archive text_uppercase"><a href="~/News/NewArchive/Press">View Archive ></a></h4>
+                    </div>
+                </div>
+                <hr>
+                <div class="events_table">
+                  
+
+
+
+                       @foreach (var Press in @Model.Press)
+                       {
+                           var content = @Html.Raw(@Press.Content);
+                           if (content.ToHtmlString().EndsWith("</a>"))
+                           {
+                            <p class="events_text_content">
+                                <span class="event_data pull-left">@String.Format("{0:MMM d, yyyy}", @Press.Published)</span><span class="events_content pull-right">@content</span>
+                            </p>
+                           }
+                           @if (!content.ToHtmlString().EndsWith("</a>"))
+                           {
+                                        <p class="events_text_content">
+                                        <a href ="~/News/PressArticle/@Press.id" class="eventlink"><span class="event_data pull-left">@String.Format("{0:MMM d, yyyy}", @Press.Published)</span><span class="events_content pull-right">@Model.Truncate(content.ToString(), 80, "...", true)</span></a> 
+                                        </p>
+                           }
+                       }
+                    
+
+
+
+
+                    
+                    
+                                
+                   
+                    <a href="~/News/NewArchive/Press">Show more...</a>
+                </div>
+
+            </div>
+            <div class='col-xs-4 membership mobile_content_global'>
+                <div class="news_block events_block">
+                    <div class="stuffing_news stuffing_events">
+                        <div class="home_member">
+                            <h1 class="member_title text_uppercase member_events_title">join the mailing list</h1>
+                            <div class="member_info member_events_info">
+                                <p>Would you like to receive the GALA News? Click the link below to subscribe.</p>
+                                <input class="text_uppercase" type="submit" value="SUBSCRIBE">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

@@ -1,0 +1,93 @@
+﻿@model Gala_MVC_Project.Models.PublicationModel
+@{
+    ViewBag.Title = "Publication";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+@using DAL.Models;
+
+
+<section class="about_content_slider">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h2 class="about_title text_uppercase">Publications</h2>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bg_contact">
+    <div class="container content">
+        <div class="row">
+            <div class="col-xs-12">
+                <ol class="breadcrumb mobile_display_none">
+                    <li><a href="~/Home">Home</a></li>
+                    <li class="active">Publication</li>
+                </ol>
+                <h1 class="content_title_news">@Model.publication.Hearder</h1>
+            </div>
+        </div>
+        <div class="row content_text">
+            <div class="col-xs-8 content_global mobile_content_global">
+                <p> @Html.Raw(@Model.publication.Content)</p><br>
+                <a class="" href="#">Receive a copy</a>
+                <p>To receive a PDF copy of the books , please email Stacy Bess at <a href="#">@Model.publication.Email</a>.</p>
+                <div class="publication_member">
+                    @foreach (var item in @Model.publicationbooks)
+                    {
+                        <div class="col-xs-6 publication_member_block">
+                            <div class="about_member_block">
+                                <div class="">
+                                    <div class="pull-left publication_member_person_photo">
+                                        <img src="~/Images/publications/@item.Picture" alt="">
+                                    </div>
+                                    <div class="pull-right about_member_person_info publication_member_person_info">
+                                        <p class="publication_title">@item.Title</p>
+                                        @Html.Raw(@item.Desc)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+                <br />
+                <div class="bio_top_title">
+                    <div class="pull-left">
+                        <h1 class="content_title_news"><span class="gazette_data text_uppercase">04.21.2014 </span>GALA @Model.LastGazetteVolume.GazetteVolume</h1>
+                    </div>
+                    <div class="pull-right print_share">
+                        <h4 class="events_archive text_uppercase"><a href="~/Publication/GazetteArchive/@Model.LastGazetteVolume.Id">< @Model.LastGazetteVolume.GazetteVolume></a></h4>
+                    </div>
+                </div>
+                <hr>
+                @foreach (Gazette article in @Model.GazetteArticles)
+                {
+                    <h4 class="gazette_country">@if (@article.Firm != null) { @article.Firm.Country}</h4>
+                    <p><span class="text_uppercase"><a href="~/Publication/GazetteArticle/@article.Id">@article.header</a></span></p>
+                    <p>
+                    @{var content = @Html.Raw(@article.Content); }
+                       @if(@content !=null ) { }
+                        @Model.Truncate(content.ToString(), 225, "...", true)  
+                        content 
+                    </p>
+                    <br>
+                }
+            </div>
+            <div class='col-xs-4 membership mobile_content_global'>
+                <div class="news_block events_block">
+                    <div class="stuffing_news stuffing_events">
+                        <div class="home_member">
+                            <h1 class="member_title text_uppercase member_events_title">join the mailing list</h1>
+                            <div class="member_info member_events_info">
+                                <p>Would you like to receive the GALA News? Click the link below to subscribe.</p>
+                                <input class="text_uppercase" type="submit" value="SUBSCRIBE">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

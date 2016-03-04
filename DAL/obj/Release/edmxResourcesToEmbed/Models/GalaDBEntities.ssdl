@@ -1,0 +1,533 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DB_97691_galadbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserRoles">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+    <Property Name="PasswordHash" Type="nvarchar(max)" />
+    <Property Name="SecurityStamp" Type="nvarchar(max)" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" />
+    <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="datetime" />
+    <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Contact">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PageTitle" Type="nvarchar(max)" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="Title" Type="nvarchar(max)" />
+    <Property Name="CompanyName" Type="nvarchar(max)" />
+    <Property Name="Address" Type="nvarchar(max)" />
+    <Property Name="City" Type="nvarchar(max)" />
+    <Property Name="Zipcode" Type="nvarchar(max)" />
+    <Property Name="Tel" Type="nvarchar(max)" />
+    <Property Name="fax" Type="nvarchar(max)" />
+    <Property Name="Web" Type="nvarchar(max)" />
+    <Property Name="Created" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="Modified" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="isDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PassRelation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TeamID" Type="int" />
+    <Property Name="Password" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Created" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="Modified" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="isDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Aboutus">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Header" Type="nvarchar(max)" />
+    <Property Name="Content" Type="nvarchar(max)" />
+    <Property Name="Created" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="Modified" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="isDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CMFRelation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CID" Type="int" />
+    <Property Name="MID" Type="int" />
+    <Property Name="FID" Type="int" />
+    <Property Name="Created" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="Modified" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="isDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Flag" Type="nvarchar(max)" />
+    <Property Name="CountryName" Type="nvarchar(max)" />
+    <Property Name="Created" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="Modified" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="isDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Events">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Type" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Heading" Type="nvarchar(max)" />
+    <Property Name="Content" Type="nvarchar(max)" />
+    <Property Name="Published" Type="datetime2" Precision="7" />
+    <Property Name="FirmID" Type="int" />
+    <Property Name="MemberID" Type="int" />
+    <Property Name="Created" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="Modified" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="isDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FCRelation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirmID" Type="int" Nullable="false" />
+    <Property Name="CountryID" Type="int" Nullable="false" />
+    <Property Name="Created " Type="datetime2" Precision="7" />
+    <Property Name="Modified" Type="datetime2" Precision="7" />
+    <Property Name="isDeleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="Firm">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirmName" Type="nvarchar(max)" />
+    <Property Name="Address" Type="nvarchar(max)" />
+    <Property Name="City" Type="nvarchar(max)" />
+    <Property Name="State" Type="nvarchar(max)" />
+    <Property Name="Zip" Type="nvarchar(max)" />
+    <Property Name="Tel" Type="nvarchar(max)" />
+    <Property Name="Fax" Type="nvarchar(max)" />
+    <Property Name="web" Type="nvarchar(max)" />
+    <Property Name="AboutContent" Type="nvarchar(max)" />
+    <Property Name="Country" Type="nvarchar(max)" />
+    <Property Name="NewsID" Type="int" />
+    <Property Name="PressID" Type="int" />
+    <Property Name="Publication" Type="int" />
+    <Property Name="Events" Type="int" />
+    <Property Name="Created" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="Modified" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="isDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Gazette">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="header" Type="nvarchar(max)" />
+    <Property Name="Content" Type="nvarchar(max)" />
+    <Property Name="MemberID" Type="int" />
+    <Property Name="GazetteVolumeID" Type="int" />
+    <Property Name="FirmID" Type="int" />
+    <Property Name="Created" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="Modified" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="isDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GazetteVolumes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GazetteVolume" Type="nvarchar(max)" />
+    <Property Name="PublishedDate" Type="datetime2" Precision="7" />
+    <Property Name="Created " Type="datetime2" Precision="7" />
+    <Property Name="Modified" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="isDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GMLink">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GazetteId" Type="int" Nullable="false" />
+    <Property Name="MemberId" Type="int" Nullable="false" />
+    <Property Name="Created " Type="datetime2" Precision="7" />
+    <Property Name="Modified" Type="datetime2" Precision="7" />
+    <Property Name="isDeleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="Home">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Header" Type="nvarchar(max)" />
+    <Property Name="Content" Type="nvarchar(max)" />
+    <Property Name="Created" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="Modified" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="isDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Publication">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Hearder" Type="nvarchar(max)" />
+    <Property Name="Content" Type="nvarchar(max)" />
+    <Property Name="Email" Type="nvarchar(max)" />
+    <Property Name="Created" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="Modified" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="isDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="publicationBooks">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Desc" Type="nvarchar(max)" />
+    <Property Name="Picture" Type="nvarchar(max)" />
+    <Property Name="Created" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="Modified" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="isDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Slider">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Header" Type="nvarchar(max)" />
+    <Property Name="Content" Type="nvarchar(max)" />
+    <Property Name="Picture" Type="nvarchar(max)" />
+    <Property Name="Created" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="Modified" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="isDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Team">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Type" Type="nvarchar(max)" />
+    <Property Name="FName" Type="nvarchar(max)" />
+    <Property Name="LName" Type="nvarchar(max)" />
+    <Property Name="MInitial" Type="nvarchar" MaxLength="1" />
+    <Property Name="Password" Type="nvarchar" MaxLength="128" />
+    <Property Name="Picture" Type="nvarchar(max)" />
+    <Property Name="BIO" Type="nvarchar(max)" />
+    <Property Name="Title" Type="nvarchar(max)" />
+    <Property Name="Email" Type="nvarchar(max)" />
+    <Property Name="Tel" Type="nvarchar(max)" />
+    <Property Name="Fax" Type="nvarchar(max)" />
+    <Property Name="FirmID" Type="int" Nullable="false" />
+    <Property Name="Created" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="Modified" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="isDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="Country_FCRelation">
+    <End Role="Country" Type="Self.Country" Multiplicity="1" />
+    <End Role="FCRelation" Type="Self.FCRelation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCRelation">
+        <PropertyRef Name="CountryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Firm_FCRelation">
+    <End Role="Firm" Type="Self.Firm" Multiplicity="1" />
+    <End Role="FCRelation" Type="Self.FCRelation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Firm">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCRelation">
+        <PropertyRef Name="FirmID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CMFRelation_Country">
+    <End Role="Country" Type="Self.Country" Multiplicity="0..1" />
+    <End Role="CMFRelation" Type="Self.CMFRelation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CMFRelation">
+        <PropertyRef Name="CID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CMFRelation_Firm">
+    <End Role="Firm" Type="Self.Firm" Multiplicity="0..1" />
+    <End Role="CMFRelation" Type="Self.CMFRelation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Firm">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CMFRelation">
+        <PropertyRef Name="FID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CMFRelation_Member">
+    <End Role="Team" Type="Self.Team" Multiplicity="0..1" />
+    <End Role="CMFRelation" Type="Self.CMFRelation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Team">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CMFRelation">
+        <PropertyRef Name="MID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+    <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetRoles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Events_Firm1">
+    <End Role="Firm" Type="Self.Firm" Multiplicity="0..1" />
+    <End Role="Events" Type="Self.Events" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Firm">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Events">
+        <PropertyRef Name="FirmID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Events_Member">
+    <End Role="Team" Type="Self.Team" Multiplicity="0..1" />
+    <End Role="Events" Type="Self.Events" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Team">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Events">
+        <PropertyRef Name="MemberID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Gazette_Firm">
+    <End Role="Firm" Type="Self.Firm" Multiplicity="0..1" />
+    <End Role="Gazette" Type="Self.Gazette" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Firm">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Gazette">
+        <PropertyRef Name="FirmID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Gazette_GazetteVolumes">
+    <End Role="GazetteVolumes" Type="Self.GazetteVolumes" Multiplicity="0..1" />
+    <End Role="Gazette" Type="Self.Gazette" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GazetteVolumes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Gazette">
+        <PropertyRef Name="GazetteVolumeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Gazette_Team">
+    <End Role="Team" Type="Self.Team" Multiplicity="0..1" />
+    <End Role="Gazette" Type="Self.Gazette" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Team">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Gazette">
+        <PropertyRef Name="MemberID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Member_Firm">
+    <End Role="Firm" Type="Self.Firm" Multiplicity="1" />
+    <End Role="Team" Type="Self.Team" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Firm">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Team">
+        <PropertyRef Name="FirmID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PassRelation_Team">
+    <End Role="Team" Type="Self.Team" Multiplicity="0..1" />
+    <End Role="PassRelation" Type="Self.PassRelation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Team">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PassRelation">
+        <PropertyRef Name="TeamID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Gazette_GMLink">
+    <End Role="Gazette" Type="Self.Gazette" Multiplicity="1" />
+    <End Role="GMLink" Type="Self.GMLink" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gazette">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GMLink">
+        <PropertyRef Name="GazetteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Member_GMLink">
+    <End Role="Team" Type="Self.Team" Multiplicity="1" />
+    <End Role="GMLink" Type="Self.GMLink" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Team">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GMLink">
+        <PropertyRef Name="MemberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DB_97691_galadbModelStoreContainer">
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PassRelation" EntityType="Self.PassRelation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Aboutus" EntityType="Self.Aboutus" Schema="dioscar" store:Type="Tables" />
+    <EntitySet Name="CMFRelation" EntityType="Self.CMFRelation" Schema="dioscar" store:Type="Tables" />
+    <EntitySet Name="Country" EntityType="Self.Country" Schema="dioscar" store:Type="Tables" />
+    <EntitySet Name="Events" EntityType="Self.Events" Schema="dioscar" store:Type="Tables" />
+    <EntitySet Name="FCRelation" EntityType="Self.FCRelation" Schema="dioscar" store:Type="Tables" />
+    <EntitySet Name="Firm" EntityType="Self.Firm" Schema="dioscar" store:Type="Tables" />
+    <EntitySet Name="Gazette" EntityType="Self.Gazette" Schema="dioscar" store:Type="Tables" />
+    <EntitySet Name="GazetteVolumes" EntityType="Self.GazetteVolumes" Schema="dioscar" store:Type="Tables" />
+    <EntitySet Name="GMLink" EntityType="Self.GMLink" Schema="dioscar" store:Type="Tables" />
+    <EntitySet Name="Home" EntityType="Self.Home" Schema="dioscar" store:Type="Tables" />
+    <EntitySet Name="Publication" EntityType="Self.Publication" Schema="dioscar" store:Type="Tables" />
+    <EntitySet Name="publicationBooks" EntityType="Self.publicationBooks" Schema="dioscar" store:Type="Tables" />
+    <EntitySet Name="Slider" EntityType="Self.Slider" Schema="dioscar" store:Type="Tables" />
+    <EntitySet Name="Team" EntityType="Self.Team" Schema="dioscar" store:Type="Tables" />
+    <AssociationSet Name="Country_FCRelation" Association="Self.Country_FCRelation">
+      <End Role="Country" EntitySet="Country" />
+      <End Role="FCRelation" EntitySet="FCRelation" />
+    </AssociationSet>
+    <AssociationSet Name="Firm_FCRelation" Association="Self.Firm_FCRelation">
+      <End Role="Firm" EntitySet="Firm" />
+      <End Role="FCRelation" EntitySet="FCRelation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CMFRelation_Country" Association="Self.FK_CMFRelation_Country">
+      <End Role="Country" EntitySet="Country" />
+      <End Role="CMFRelation" EntitySet="CMFRelation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CMFRelation_Firm" Association="Self.FK_CMFRelation_Firm">
+      <End Role="Firm" EntitySet="Firm" />
+      <End Role="CMFRelation" EntitySet="CMFRelation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CMFRelation_Member" Association="Self.FK_CMFRelation_Member">
+      <End Role="Team" EntitySet="Team" />
+      <End Role="CMFRelation" EntitySet="CMFRelation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Events_Firm1" Association="Self.FK_Events_Firm1">
+      <End Role="Firm" EntitySet="Firm" />
+      <End Role="Events" EntitySet="Events" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Events_Member" Association="Self.FK_Events_Member">
+      <End Role="Team" EntitySet="Team" />
+      <End Role="Events" EntitySet="Events" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Gazette_Firm" Association="Self.FK_Gazette_Firm">
+      <End Role="Firm" EntitySet="Firm" />
+      <End Role="Gazette" EntitySet="Gazette" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Gazette_GazetteVolumes" Association="Self.FK_Gazette_GazetteVolumes">
+      <End Role="GazetteVolumes" EntitySet="GazetteVolumes" />
+      <End Role="Gazette" EntitySet="Gazette" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Gazette_Team" Association="Self.FK_Gazette_Team">
+      <End Role="Team" EntitySet="Team" />
+      <End Role="Gazette" EntitySet="Gazette" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Member_Firm" Association="Self.FK_Member_Firm">
+      <End Role="Firm" EntitySet="Firm" />
+      <End Role="Team" EntitySet="Team" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PassRelation_Team" Association="Self.FK_PassRelation_Team">
+      <End Role="Team" EntitySet="Team" />
+      <End Role="PassRelation" EntitySet="PassRelation" />
+    </AssociationSet>
+    <AssociationSet Name="Gazette_GMLink" Association="Self.Gazette_GMLink">
+      <End Role="Gazette" EntitySet="Gazette" />
+      <End Role="GMLink" EntitySet="GMLink" />
+    </AssociationSet>
+    <AssociationSet Name="Member_GMLink" Association="Self.Member_GMLink">
+      <End Role="Team" EntitySet="Team" />
+      <End Role="GMLink" EntitySet="GMLink" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

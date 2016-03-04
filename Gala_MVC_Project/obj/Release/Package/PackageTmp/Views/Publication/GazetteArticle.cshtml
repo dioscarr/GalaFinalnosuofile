@@ -1,0 +1,91 @@
+﻿@model Gala_MVC_Project.Models.PublicationModel
+@{
+    ViewBag.Title = "GazetteArticle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="about_content_slider">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h2 class="about_title text_uppercase">Gala Gazette</h2>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bg_contact">
+    <div class="container content">
+        <div class="row">
+            <div class="col-xs-12">
+                <ol class="breadcrumb mobile_display_none">
+                    <li><a href="~/Home">Home</a></li>
+                    <li><a href="~/Publication/Publication">Publication</a></li>                   
+                    <li class="active">Volume 10, Issue 2</li>
+                </ol>
+            </div>
+        </div>
+        <div class="row content_text">
+            <div class="col-xs-9 content_global mobile_content_global">
+                <div class="bio_top_title">
+                    <div class="pull-left">
+                        <h1 class="content_title_news">@Model.GazetteArticle.header</h1>
+                    </div>
+                    <div class="pull-right print_share">
+                        <a href="javascript:window.print();"><img src="~/Images/print.png" alt="Print"></a>
+                        <a href="http://www.addthis.com/bookmark.php"
+                           class="addthis_button"
+                           style="text-decoration:none;">
+                            <img src="~/Images/share.png" alt="Share" />
+                        </a> 
+                    </div>
+                </div>
+                <hr>
+                <div class="bio_member_content_info gazette_article_content_info">
+                   
+
+                 @Html.Raw(@Model.GazetteArticle.Content)
+                   
+                </div>
+            </div>
+            <div class="col-xs-3 mobile_content_global">
+               
+                <div class="bio_contact_info">
+                    <h4 class="bio_contact_info_title">@Model.GazetteArticle.Firm.FirmName</h4>
+                    <p>@Model.GazetteArticle.Firm.Address</p>
+                    <p>@Model.GazetteArticle.Firm.City, @Model.GazetteArticle.Firm.Country</p>
+                    <p>Tel:     <a href="">@Model.GazetteArticle.Firm.Tel</a></p>
+                    <p>Web:   <a href="">@Model.GazetteArticle.Firm.web</a></p>
+                </div>
+                @foreach (var item in @Model.GazetteArticle.GMLink)
+                {
+
+                    <div class="about_member_block">
+                        <div class="about_member_person">
+                            <div class="pull-left about_member_person_img">
+                                <img src="~/Images/Members/@item.Team.Picture" alt="">
+                            </div>
+                            <div class="pull-right about_member_person_info">
+                                <h3>@item.Team.FName @item.Team.LName</h3>
+                                <span><a class="" href="#">@item.Team.Email</a></span>
+                            </div>
+                        </div>
+                    </div>
+                }
+               
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+@section scripts{
+
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-56c77f564b126cf8"></script>
+
+
+}
+
+

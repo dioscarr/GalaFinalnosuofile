@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "PrivacyPolicy";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="about_content_slider ">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h2 class="about_title text_uppercase">Privacy Policy</h2>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bg_contact ">
+    <div class="container content ">
+        <div class="row">
+            <div class="col-xs-12 term_and_privacy">
+                <h1 class="content_title_news term_and_privacy_title">
+                    This information is coming soon.
+                </h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+@section scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.content').css("height", ($(window).height() - $('#wrapper2').height()) + $('.content').height());
+        });
+    </script>
+}

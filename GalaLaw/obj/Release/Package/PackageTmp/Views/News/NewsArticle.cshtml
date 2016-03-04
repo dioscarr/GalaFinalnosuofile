@@ -1,0 +1,73 @@
+﻿@model GalaLaw.Models.EventsModel
+@{
+    ViewBag.Title = "GazetteArticle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="about_content_slider">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h2 class="about_title text_uppercase">Gala Gazette</h2>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bg_contact">
+    <div class="container content">
+        <div class="row">
+            <div class="col-xs-12">
+                <ol class="breadcrumb mobile_display_none">
+                    <li><a href="~/Home">Home</a></li>
+                    <li><a href="~/Publication/Publication">Publication</a></li>
+                    <li><a href="~/Publication/GazetteArchive">Gala Gazette</a></li>
+                    <li class="active">Volume 10, Issue 2</li>
+                </ol>
+            </div>
+        </div>
+        <div class="row content_text">
+            <div class="col-xs-9 content_global mobile_content_global">
+                <div class="bio_top_title">
+                    <div class="pull-left">
+                        <h1 class="content_title_news">@Model.newsSingle.Heading</h1>
+                    </div>
+                    <div class="pull-right print_share">
+                        <a href="#"><img src="~/Images/print.png"></a>
+                        <a href="#"><img src="~/Images/share.png"></a>
+                    </div>
+                </div>
+                <hr>
+                <div class="bio_member_content_info gazette_article_content_info">
+                     @Html.Raw(@Model.newsSingle.Content)
+
+                </div>
+            </div>
+            <div class="col-xs-3 mobile_content_global">
+                <h4 class="bio_left_title text_uppercase"><img src="~/Images/company-logo-1.png"></h4>
+                <div class="bio_contact_info">
+                    <h4 class="bio_contact_info_title">Office</h4>
+                    <p>BLP Building, 4th floor.</p>
+                    <p>Via Lindora Business Center</p>
+                    <p>Radial Santa Ana – Belen, Km 3. Santa Ana</p>
+                    <p>San Jose. Costa Rica</p>
+                    <p>Tel:     <a href="">(+506) 2205-3900</a></p>
+                    <p>Web:   <a href="">www.blplegal.com</a></p>
+                </div>
+                <div class="about_member_block">
+                    <div class="about_member_person">
+                        <div class="pull-left about_member_person_img">
+                            <img src="~/Images/member-img-2.jpg" alt="">
+                        </div>
+                        <div class="pull-right about_member_person_info">
+                            <h3>Uri Weinstok</h3>
+                            <span><a class="" href="#">uweinstok@blplegal.com</a></span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+

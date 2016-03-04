@@ -1,0 +1,174 @@
+﻿@model GalaLaw.Areas.Admin.Models.EventsModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Secomdary_Layout.cshtml";
+}
+
+<div class="container" >
+    <div class="row outer-Box" style=" margin-top:20px; padding-bottom:0!important;">
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading"><p>
+    @Html.ActionLink("Create New", "Insert", null, new {@style="color:white;" })
+</p> </div>
+                <div class="panel-body" style="background:#f3f3f3;">
+                    <div class="form-group " style="padding-bottom:0!important;">
+                     
+                        <table class="table">
+                            <tr>
+                                <th>
+                                    Type
+                                </th>
+                                <th>
+                                    Heading
+                                </th>
+                                <th>
+                                    Content
+                                </th>
+                                <th>
+                                    Published
+                                </th>
+
+                                <th></th>
+                            </tr>
+                            <tr><td colspan="5"><h2 class="adminh2">News</h2></td></tr>
+
+                            @foreach (var item in Model.Eventss.Where(c => c.Type == "News").ToList())
+                            {
+                                <tr class="table-style">
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Type)
+                                    </td>
+                                    <td>
+                                     @if (@item.Heading != null)
+                                     {
+                                        @Html.Raw(@item.Heading)
+                                     }
+                                    </td>
+                                    <td>
+                                        @if (@item.Content!=null) {
+                                        @Html.Raw(@Model.Truncate(@item.Content, 100))
+                                        }
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem  => item.Published)
+                                    </td>
+
+                                    <td>
+                                        @Html.ActionLink("Edit", "Update", new { id = item.id }) |
+                                        @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                                        @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                                    </td>
+                                </tr>
+                            }
+
+                            <tr><td colspan="5"><h2 class="adminh2">Gala Events</h2></td></tr>
+
+                            @foreach (var item in Model.Eventss.Where(c => c.Type == "Gala Events").ToList())
+                            {
+                                <tr class="table-style">
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Type)
+                                    </td>
+                                    <td>
+                                      @if (@item.Heading != null)
+                                      {
+                                        @Html.Raw(@item.Heading)
+                                      }
+                                    </td>
+                                    <td>
+                                        @if (@item.Content != null)
+                                        {
+                                            @Html.Raw(@Model.Truncate(@item.Content, 100))
+                                        }
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Published)
+                                    </td>
+
+                                    <td>
+                                        @Html.ActionLink("Edit", "Update", new { id = item.id }) |
+                                        @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                                        @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                                    </td>
+                                </tr>
+                            }
+
+                            <tr><td colspan="5"><h2 class="adminh2">Press</h2></td></tr>
+
+                            @foreach (var item in Model.Eventss.Where(c => c.Type == "Press").ToList())
+                            {
+                                <tr class="table-style">
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Type)
+                                    </td>
+                                    <td>
+                                      @if (@item.Heading != null)
+                                      {
+                                        @Html.Raw(@item.Heading)
+                                      }
+                                    </td>
+                                    <td>
+                                        @if (@item.Content != null)
+                                        {
+                                            @Html.Raw(@Model.Truncate(@item.Content, 100))
+                                        }
+                                       
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Published)
+                                    </td>
+
+                                    <td>
+                                        @Html.ActionLink("Edit", "Update", new { id = item.id }) |
+                                        @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                                        @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                                    </td>
+                                </tr>
+                            }
+
+                            <tr><td colspan="5"><h2 class="adminh2">Other Events</h2></td></tr>
+
+                            @foreach (var item in Model.Eventss.Where(c => c.Type == "Other Events").ToList())
+                            {
+                                <tr class="table-style">
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Type)
+                                    </td>
+                                    <td>
+                                        @if (@item.Heading != null)
+                                        {
+                                            @Html.Raw(@item.Heading)
+                                        }
+                                      
+                                    </td>
+                                    <td>
+                                         @if (@item.Content!=null) {
+                                        @Html.Raw(@Model.Truncate(@item.Content, 100))
+                                        }
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Published)
+                                    </td>
+
+                                    <td>
+                                        @Html.ActionLink("Edit", "Update", new { id = item.id }) |
+                                        @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                                        @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                                    </td>
+                                </tr>
+                            }
+
+
+
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
